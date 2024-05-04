@@ -103,6 +103,7 @@ Knockback:
 KillauraA:
   setbackvl: 1
 InventoryA:
+  cancel-click: false
   drift: 120
 Explosion:
   threshold: 0.001

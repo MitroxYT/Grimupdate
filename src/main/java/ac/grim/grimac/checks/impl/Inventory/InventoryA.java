@@ -13,21 +13,32 @@ public class InventoryA extends Check implements PacketCheck {
     public InventoryA(GrimPlayer player) {
         super(player);
     }
-
+    private boolean cancel = false;
     @Override
     public void onPacketReceive(PacketReceiveEvent event) {
         if (event.getPacketType() == PacketType.Play.Client.CLICK_WINDOW) {
             WrapperPlayClientClickWindow wrapper = new WrapperPlayClientClickWindow(event);
             if (player.isSprinting) {
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagAndAlert("");
-                event.setCancelled(true);
-                player.onPacketCancel();
+                if (cancel) {
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagAndAlert("");
+                    event.setCancelled(true);
+                    player.onPacketCancel();
+                }
+                else {
+                    flagAndAlert("");
+                }
             }
         }
 
+
+    }
+    @Override
+    public void reload() {
+        super.reload();
+        this.cancel = getConfig().getBooleanElse("InventoryA.cancel-click", false);
     }
 }

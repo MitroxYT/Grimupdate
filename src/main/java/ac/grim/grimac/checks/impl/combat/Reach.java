@@ -248,7 +248,7 @@ public class Reach extends Check implements PacketCheck {
     @Override
     public void reload() {
         super.reload();
-        this.cancelImpossibleHits = getConfig().getBooleanElse("Reach.block-impossible-hits", true);
-        this.threshold = getConfig().getDoubleElse("Reach.threshold", 0.0005);
+        this.cancelImpossibleHits = getConfig().getBooleanElse("Hitbox.block-impossible-hits", true);
+        this.threshold = getConfig().getDoubleElse("Hitbox.threshold", 0.0005);
     }
 }
