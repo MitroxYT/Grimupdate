@@ -133,6 +133,17 @@ public class TimerCheck extends Check implements PacketCheck {
                     flagWithSetback();
                     // Only alert if we would fail without adjusted limit
                     alert("");
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetback();
                 }
             }
 

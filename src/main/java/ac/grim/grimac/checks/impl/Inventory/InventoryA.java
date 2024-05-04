@@ -1,4 +1,4 @@
-package ac.grim.grimac.checks.impl.movement;
+package ac.grim.grimac.checks.impl.Inventory;
 
 import ac.grim.grimac.checks.Check;
 import ac.grim.grimac.checks.CheckData;

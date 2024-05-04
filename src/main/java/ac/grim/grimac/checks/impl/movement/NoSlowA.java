@@ -43,7 +43,7 @@ public class NoSlowA extends Check implements PostPredictionCheck {
                     flagWithSetback();
                     flagWithSetback();
                     player.onPacketCancel();
-                    alert("Offset " + bestOffset + " tickflag: " + flaggedLastTick);
+                    alert(" tickflag: " + flaggedLastTick);
 
                 }
                 flaggedLastTick = true;
