@@ -20,11 +20,13 @@ public class InventoryA extends Check implements PacketCheck {
             WrapperPlayClientClickWindow wrapper = new WrapperPlayClientClickWindow(event);
             if (player.isSprinting) {
                 if (cancel) {
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
                     flagAndAlert("");
+                    event.setCancelled(true);
+                    player.onPacketCancel();
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetback();
                     event.setCancelled(true);
                     player.onPacketCancel();
                 }

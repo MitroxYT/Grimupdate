@@ -8,7 +8,7 @@ import com.github.retrooper.packetevents.event.PacketReceiveEvent;
 import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientPlayerFlying;
 
 // This check catches 100% of cheaters.
-@CheckData(name = "Flight-", experimental = true)
+@CheckData(name = "FlightA", experimental = true)
 public class FlightA extends Check implements PacketCheck {
     public FlightA(GrimPlayer player) {
         super(player);

@@ -52,7 +52,7 @@ Punishments:
     commands:
       - "1:0 [alert]"
       - "2:0 [alert]"
-      - "3:0 kick %player% &cИспользовани читов --sender=&aAnticheate"
+      - "2:0 kick %player% &cИспользовани читов --sender=&aAnticheate"
   BadPackets:
     remove-violations-after: 750
     checks:
@@ -74,7 +74,7 @@ Punishments:
       - "10:0 [alert]"
       - "15:0 [alert]"
       - "20:0 kick %player% &cИспользовани читов --sender=&aAnticheate"
-  Reach:
+  Hitbox:
     remove-violations-after: 300
     checks:
       - "Hitbox"
@@ -108,12 +108,13 @@ Punishments:
       - "Aim"
       - "KillauraA"
     commands:
-      - "20:0 [alert]"
-      - "30:0 kick %player% &cИспользовани читов --sender=&aAnticheate"
+      - "5:0 [alert]"
+      - "10:0 [alert]"
+      - "15:0 kick %player% &cИспользовани читов --sender=&aAnticheate"
   # As of 2.2.10, there are no AutoClicker checks and this is a placeholder. Grim will include AutoClicker checks in the future.
   Autoclicker:
     remove-violations-after: 750
     checks:
-      - "Autoclicker"
+      - "AutoClickerA"
     commands:
-      - "20:40 [alert]"
+      - "5:0 [alert]"

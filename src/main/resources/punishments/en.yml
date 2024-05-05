@@ -114,6 +114,6 @@ Punishments:
   Autoclicker:
     remove-violations-after: 750
     checks:
-      - "Autoclicker"
+      - "AutoClickerA"
     commands:
-      - "20:40 [alert]"
+      - "5:0 [alert]"

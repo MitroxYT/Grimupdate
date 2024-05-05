@@ -24,13 +24,13 @@ public class NegativeTimerCheck extends TimerCheck implements PostPredictionChec
 
         if (timerBalanceRealTime < lastMovementPlayerClock - clockDrift) {
             int lostMS = (int) ((System.nanoTime() - timerBalanceRealTime) / 1e6);
-            flagWithSetback();
-            flagWithSetback();
-            flagWithSetback();
-            flagWithSetback();
-            flagWithSetback();
-            flagWithSetback();
             flagAndAlert("-" + lostMS);
+            flagWithSetback();
+            flagWithSetback();
+            flagWithSetback();
+            flagWithSetback();
+            flagWithSetback();
+            flagWithSetback();
             timerBalanceRealTime += 50e6;
         }
     }

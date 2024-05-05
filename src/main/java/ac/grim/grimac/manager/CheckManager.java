@@ -5,10 +5,12 @@ import ac.grim.grimac.api.AbstractCheck;
 import ac.grim.grimac.checks.impl.Inventory.InventoryA;
 import ac.grim.grimac.checks.impl.aim.AimDuplicateLook;
 import ac.grim.grimac.checks.impl.aim.AimModulo360;
-import ac.grim.grimac.checks.impl.aim.KillauraA;
+
 import ac.grim.grimac.checks.impl.aim.processor.AimProcessor;
+import ac.grim.grimac.checks.impl.autoclicker.AutoClickerA;
 import ac.grim.grimac.checks.impl.badpackets.*;
 import ac.grim.grimac.checks.impl.baritone.Baritone;
+import ac.grim.grimac.checks.impl.combat.KillauraA;
 import ac.grim.grimac.checks.impl.combat.Reach;
 import ac.grim.grimac.checks.impl.crash.*;
 import ac.grim.grimac.checks.impl.exploit.ExploitA;
@@ -74,6 +76,7 @@ public class CheckManager {
                 .put(BadPacketsB.class, new BadPacketsB(player))
                 .put(BadPacketsC.class, new BadPacketsC(player))
                 .put(BadPacketsD.class, new BadPacketsD(player))
+                .put(AutoClickerA.class, new AutoClickerA(player))
                 .put(BadPacketsE.class, new BadPacketsE(player))
                 .put(BadPacketsF.class, new BadPacketsF(player))
                 .put(BadPacketsG.class, new BadPacketsG(player))

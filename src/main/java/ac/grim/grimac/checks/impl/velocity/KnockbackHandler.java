@@ -120,8 +120,11 @@ public class KnockbackHandler extends Check implements PostPredictionCheck {
         if (firstBreadMap.isEmpty()) return;
         VelocityData data = firstBreadMap.peek();
         while (data != null) {
-            if (data.transaction == transactionID) { // First bread knockback
+            if (data.transaction == transactionID) {
+                //alert("дата дошел");// First bread knockback
                 firstBreadOnlyKnockback = new VelocityData(data.entityID, data.transaction, data.isSetback, data.vector);
+                //flagWithSetback();
+
                 //firstBreadMap.poll();
                 break; // All knockback after this will have not been applied
             } else if (data.transaction < transactionID) { // This kb has 100% arrived to the player
@@ -199,13 +202,19 @@ public class KnockbackHandler extends Check implements PostPredictionCheck {
             if (player.likelyKB.offset > offsetToFlag) {
                 threshold = Math.min(threshold + player.likelyKB.offset, ceiling);
                 if (player.likelyKB.isSetback) {
-                    flagWithSetback();// Don't increase violations if this velocity was setback, just teleport and resend them velocity.
+                    //flagWithSetback();// Don't increase violations if this velocity was setback, just teleport and resend them velocity.
                     //player.getSetbackTeleportUtil().executeViolationSetback();
                 } else if (flag()) { // This velocity was sent by the server.
                     if (player.likelyKB.offset >= immediate || threshold >= maxAdv) {
                         flagWithSetback();
-
-                        //player.getSetbackTeleportUtil().executeViolationSetback();
+                        flagWithSetback();
+                        flagWithSetback();
+                        flagWithSetback();
+                        flagWithSetback();
+                        player.getSetbackTeleportUtil().executeNonSimulatingSetback();
+                        player.getSetbackTeleportUtil().executeNonSimulatingSetback();
+                        player.getSetbackTeleportUtil().shouldBlockMovement();
+                        player.getSetbackTeleportUtil().executeViolationSetback();
                     }
 
                     String formatOffset = "o: " + formatOffset(player.likelyKB.offset);
@@ -213,8 +222,55 @@ public class KnockbackHandler extends Check implements PostPredictionCheck {
                     if (player.likelyKB.offset == Integer.MAX_VALUE) {
                         formatOffset = "ignored knockback";
                     }
+                    flagWithSetback();flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetback();
                     flagWithSetback();
                     alert(formatOffset);
+                    player.getSetbackTeleportUtil().shouldBlockMovement();
+                    player.getSetbackTeleportUtil().shouldBlockMovement();
+                    player.getSetbackTeleportUtil().shouldBlockMovement();
+                    player.getSetbackTeleportUtil().shouldBlockMovement();
+                    player.getSetbackTeleportUtil().shouldBlockMovement();
+                    player.getSetbackTeleportUtil().shouldBlockMovement();
+                    player.getSetbackTeleportUtil().shouldBlockMovement();
+                    player.getSetbackTeleportUtil().shouldBlockMovement();
+                    player.getSetbackTeleportUtil().shouldBlockMovement();
+                    player.getSetbackTeleportUtil().shouldBlockMovement();                    player.getSetbackTeleportUtil().shouldBlockMovement();
+                    player.getSetbackTeleportUtil().shouldBlockMovement();
+                    player.getSetbackTeleportUtil().shouldBlockMovement();
+                    player.getSetbackTeleportUtil().shouldBlockMovement();
+                    player.getSetbackTeleportUtil().shouldBlockMovement();
+                    player.getSetbackTeleportUtil().shouldBlockMovement();
+                    player.getSetbackTeleportUtil().shouldBlockMovement();
+                    player.getSetbackTeleportUtil().shouldBlockMovement();
+                    player.getSetbackTeleportUtil().shouldBlockMovement();
+                    player.getSetbackTeleportUtil().shouldBlockMovement();
+                    flagWithSetback();
+                    flagWithSetback();
+                    player.getSetbackTeleportUtil().shouldBlockMovement();
+                    player.getSetbackTeleportUtil().shouldBlockMovement();
+                    player.getSetbackTeleportUtil().shouldBlockMovement();
+                    player.getSetbackTeleportUtil().shouldBlockMovement();
+                    player.getSetbackTeleportUtil().shouldBlockMovement();
+                    player.getSetbackTeleportUtil().shouldBlockMovement();
+                    player.getSetbackTeleportUtil().shouldBlockMovement();
+                    player.getSetbackTeleportUtil().shouldBlockMovement();
+                    player.getSetbackTeleportUtil().shouldBlockMovement();
+                    player.getSetbackTeleportUtil().shouldBlockMovement();
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetback();
+                    player.onPacketCancel();
+                    player.onPacketCancel();player.onPacketCancel();player.onPacketCancel();player.onPacketCancel();player.onPacketCancel();
+                    //player.getSetbackTeleportUtil().executeNonSimulatingSetback();
+                    //player.getSetbackTeleportUtil().executeNonSimulatingSetback();
+                    player.getSetbackTeleportUtil().shouldBlockMovement();
+                    player.getSetbackTeleportUtil().shouldBlockMovement();                    player.getSetbackTeleportUtil().shouldBlockMovement();                    player.getSetbackTeleportUtil().shouldBlockMovement();
+                    //player.getSetbackTeleportUtil().executeViolationSetback();
                 } else {
                     reward();
                 }
