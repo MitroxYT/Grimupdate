@@ -20,6 +20,7 @@ import ac.grim.grimac.checks.Check;
 import ac.grim.grimac.checks.CheckData;
 import ac.grim.grimac.checks.type.PacketCheck;
 import ac.grim.grimac.player.GrimPlayer;
+import ac.grim.grimac.utils.anticheat.Swatutil;
 import ac.grim.grimac.utils.collisions.datatypes.SimpleCollisionBox;
 import ac.grim.grimac.utils.data.packetentity.PacketEntity;
 import ac.grim.grimac.utils.math.VectorUtils;
@@ -30,9 +31,11 @@ import com.github.retrooper.packetevents.protocol.entity.type.EntityTypes;
 import com.github.retrooper.packetevents.protocol.packettype.PacketType;
 import com.github.retrooper.packetevents.protocol.player.ClientVersion;
 import com.github.retrooper.packetevents.protocol.player.GameMode;
+import com.github.retrooper.packetevents.protocol.player.User;
 import com.github.retrooper.packetevents.util.Vector3d;
 import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientInteractEntity;
 import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientPlayerFlying;
+import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
 import java.util.*;
@@ -58,7 +61,7 @@ public class Reach extends Check implements PacketCheck {
     }
 
     @Override
-    public void onPacketReceive(final PacketReceiveEvent event) {
+    public void onPacketReceive(PacketReceiveEvent event) {
         if (!player.disableGrim && event.getPacketType() == PacketType.Play.Client.INTERACT_ENTITY) {
             WrapperPlayClientInteractEntity action = new WrapperPlayClientInteractEntity(event);
 
@@ -149,11 +152,14 @@ public class Reach extends Check implements PacketCheck {
                 if (result != null) {
                     if (reachEntity.type == EntityTypes.PLAYER) {
                         flagAndAlert(result);
+                        Swatutil swapUtil = new Swatutil();
+                        swapUtil.swap(player.user,1);
                         flagWithSetback();
                         flagWithSetback();
                         flagWithSetback();
                         flagWithSetback();
                         flagWithSetback();
+                        swapUtil.swap(player.user,1);
                     } else {
                         flagWithSetback();
                         flagWithSetback();

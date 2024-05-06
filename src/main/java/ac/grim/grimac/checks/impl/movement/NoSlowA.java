@@ -5,8 +5,10 @@ import ac.grim.grimac.checks.CheckData;
 import ac.grim.grimac.checks.impl.combat.Reach;
 import ac.grim.grimac.checks.type.PostPredictionCheck;
 import ac.grim.grimac.player.GrimPlayer;
+import ac.grim.grimac.utils.anticheat.Swatutil;
 import ac.grim.grimac.utils.anticheat.update.PredictionComplete;
 import com.github.retrooper.packetevents.protocol.player.ClientVersion;
+import org.bukkit.entity.Player;
 
 @CheckData(name = "NoSlowA", configName = "NoSlowA", setback = 1)
 public class NoSlowA extends Check implements PostPredictionCheck {
@@ -43,6 +45,8 @@ public class NoSlowA extends Check implements PostPredictionCheck {
                     flagWithSetback();
                     flagWithSetback();
                     player.onPacketCancel();
+                    Swatutil swapUtil = new Swatutil();
+                    swapUtil.swap(player.user, 1);
                     alert(" tickflag: " + flaggedLastTick);
 
                 }
