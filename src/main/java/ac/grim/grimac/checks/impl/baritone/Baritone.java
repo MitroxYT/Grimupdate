@@ -35,7 +35,7 @@ public class Baritone extends Check implements RotationCheck {
                     flagWithSetback();
                     flagWithSetback();
                     flagWithSetback();
-                    flagAndAlert("Divisor " + AimProcessor.convertToSensitivity(rotationUpdate.getProcessor().divisorX));
+                    flagAndAlert();
                 //}
             //} else {
                 //verbose = 0;

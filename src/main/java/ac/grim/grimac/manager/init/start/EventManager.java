@@ -23,11 +23,8 @@ public class EventManager implements Initable {
             "╚═╝░░╚═╝╚═╝░░╚══╝░░░╚═╝░░░╚═╝░╚════╝░╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝░░░╚═╝░░░░░╚═╝░╚═════╝░╚═╝░░░░░╚═════╝░╚═╝░░╚═╝░░░╚═╝░░░╚══════╝╚═════╝╚═╝░░\n";
     public void start() {
         LogUtil.info("Starting GrimAC");
-        LogUtil.info(" ");
         LogUtil.info(logui);
-        LogUtil.info(" ");
         LogUtil.info("Registering singular bukkit event... (PistonEvent)");
-
         Bukkit.getPluginManager().registerEvents(new PistonEvent(), GrimAPI.INSTANCE.getPlugin());
     }
 }

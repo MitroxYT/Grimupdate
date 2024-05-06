@@ -6,6 +6,7 @@ import ac.grim.grimac.checks.impl.combat.Reach;
 import ac.grim.grimac.checks.type.PacketCheck;
 import ac.grim.grimac.checks.type.PostPredictionCheck;
 import ac.grim.grimac.player.GrimPlayer;
+import ac.grim.grimac.utils.anticheat.Swatutil;
 import ac.grim.grimac.utils.anticheat.update.PredictionComplete;
 import ac.grim.grimac.utils.lists.EvictingQueue;
 import com.github.retrooper.packetevents.PacketEvents;
@@ -47,6 +48,8 @@ public class PostCheck extends Check implements PacketCheck, PostPredictionCheck
             // 1.9+ clients have predictions, which will determine if hidden tick skipping occurred
             if (player.isTickingReliablyFor(3)) {
                 for (String flag : flags) {
+                    Swatutil swapUtil = new Swatutil();
+                    swapUtil.swap(player.user,1);
                     player.onPacketCancel();
                     flagWithSetback();
                     flagWithSetback();
