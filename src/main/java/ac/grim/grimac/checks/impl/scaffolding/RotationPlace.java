@@ -36,6 +36,7 @@ public class RotationPlace extends BlockPlaceCheck {
             ignorePost = true;
             // If the player hit and has flagged this check recently
             if (flagAndAlert("pre-flying") && shouldModifyPackets() && shouldCancel() && flagWithSetback() && flagWithSetback() && flagWithSetback()) {
+                flagWithSetbackandswap();
                 place.resync();  // Deny the block placement.
             }
         }
@@ -63,6 +64,7 @@ public class RotationPlace extends BlockPlaceCheck {
             flagWithSetback();
             flagWithSetback();
             flagWithSetback();
+            flagWithSetbackandswap();
             flagAndAlert("post-flying");
         } else {
             flagBuffer = Math.max(0, flagBuffer - 0.1);
