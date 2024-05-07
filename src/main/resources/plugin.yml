@@ -1,5 +1,5 @@
 name: GrimAC
-version: 2.3.62
+version: 2.3.63
 main: ac.grim.grimac.GrimAC
 folia-supported: true
 description: "GrimUpdate"

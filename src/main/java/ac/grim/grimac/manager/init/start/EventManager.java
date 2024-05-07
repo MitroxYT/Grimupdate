@@ -34,6 +34,7 @@ public class EventManager implements Initable {
     public void start() {
         LogUtil.info("Starting GrimAC");
         LogUtil.info(logoiu);
+        LogUtil.info("By NurcaDev and NoSlowD0wn");
         LogUtil.info("Registering singular bukkit event... (PistonEvent)");
         Bukkit.getPluginManager().registerEvents(new PistonEvent(), GrimAPI.INSTANCE.getPlugin());
     }
