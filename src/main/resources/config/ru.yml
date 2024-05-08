@@ -62,8 +62,10 @@ Scaffold:
   cancelvl: 10
   G:
     mindistance: 80
+    Cancel-build: false
   B:
     mindistance: 80
+    Cancel-build: false
 
 FabricatedPlace:
   cancelvl: 5

@@ -12,6 +12,7 @@ import com.github.retrooper.packetevents.util.Vector3i;
 @CheckData(name = "ScaffoldB")
 public class ScaffoldB extends BlockPlaceCheck implements PacketCheck {
     private int ticks, bypassdist;
+    private boolean flags;
     public ScaffoldB(GrimPlayer player) {
         super(player);
     }
@@ -24,17 +25,22 @@ public class ScaffoldB extends BlockPlaceCheck implements PacketCheck {
         if (blockPos.getY() <= bypassdist) return;
         if (placeAgainst.isAir() || Materials.isNoPlaceLiquid(placeAgainst) || player.isSprinting ) {
             if (++ticks >= 35) {
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetbackandswap();
-                flagWithSetback();
-                place.resync();
-                place.resync();
-                place.resync();
-                place.resync();
-                place.resync();
-                place.resync();
-                flagAndAlert("X: " + blockPos.getX() + " Y: " + blockPos.getY() + " Z: " + blockPos.getZ() + "Block: " + place.getBelowMaterial());
+                if(flags) {
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetbackandswap();
+                    flagWithSetback();
+                    place.resync();
+                    place.resync();
+                    place.resync();
+                    place.resync();
+                    place.resync();
+                    place.resync();
+                    flagAndAlert();
+                }
+                else {
+                    flagAndAlert();
+                }
                 if (ticks >= 40) {
                     ticks = 0;
                 }
@@ -44,6 +50,7 @@ public class ScaffoldB extends BlockPlaceCheck implements PacketCheck {
     @Override
     public void reload() {
         super.reload();
+        this.flags = getConfig().getBoolean("Scaffold.B.Cancel-build");
         this.bypassdist = getConfig().getInt("Scaffold.B.mindistance");
         ticks = 0;
     }

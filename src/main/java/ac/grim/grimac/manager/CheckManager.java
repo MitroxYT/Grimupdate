@@ -146,6 +146,7 @@ public class CheckManager {
                 .put(AirLiquidPlace.class, new AirLiquidPlace(player))
                 .put(ScaffoldB.class, new ScaffoldB(player))
                 .put(ScaffoldG.class, new ScaffoldG(player))
+                .put(ScaffoldE.class, new ScaffoldE(player))
                 .put(FarPlace.class, new FarPlace(player))
                 .put(FabricatedPlace.class, new FabricatedPlace(player))
                 .put(PositionPlace.class, new PositionPlace(player))
