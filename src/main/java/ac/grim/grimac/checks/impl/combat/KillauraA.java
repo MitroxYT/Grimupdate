@@ -10,6 +10,8 @@ import com.github.retrooper.packetevents.protocol.packettype.PacketType;
 
 import java.util.Objects;
 
+import static ac.grim.grimac.utils.anticheat.Version.IS_bypassss;
+
 @CheckData(name = "KillauraA")
 public class KillauraA extends Check implements PacketCheck {
     public KillauraA(GrimPlayer player) {
@@ -18,6 +20,7 @@ public class KillauraA extends Check implements PacketCheck {
     @Override
     public void onPacketReceive(PacketReceiveEvent event) {
         if (event.getPacketType() == PacketType.Play.Client.INTERACT_ENTITY) {
+            if (IS_bypassss) return;
             if (Objects.requireNonNull(player.bukkitPlayer).isHandRaised()) {
                 flagWithSetback();
                 flagWithSetback();

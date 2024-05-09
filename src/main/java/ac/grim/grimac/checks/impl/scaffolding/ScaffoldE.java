@@ -8,39 +8,27 @@ import ac.grim.grimac.utils.anticheat.update.BlockPlace;
 import ac.grim.grimac.utils.nmsutil.Materials;
 import com.github.retrooper.packetevents.protocol.player.GameMode;
 import com.github.retrooper.packetevents.protocol.world.states.type.StateType;
-import com.github.retrooper.packetevents.util.Vector3f;
 import com.github.retrooper.packetevents.util.Vector3i;
 @CheckData(name = "ScaffoldE")
 public class ScaffoldE extends BlockPlaceCheck implements PacketCheck {
     private int ticks, countsblock, bypassdist;
     private boolean flags;
+    private long lastSprintTime;
+
     public ScaffoldE(GrimPlayer player) {
         super(player);
     }
+
     @Override
     public void onBlockPlace(final BlockPlace place) {
         if (player.fallDistance >= 3) return;
-        Vector3f cursor = place.getCursor();
-        if (cursor == null) return;
+
         if (player.gamemode == GameMode.CREATIVE) return;
-
         Vector3i blockPos = place.getPlacedAgainstBlockLocation();
-
-        StateType placecursor = player.compensatedWorld.getStateTypeAt(cursor.getX(),cursor.getY(),cursor.getZ());
         StateType placeAgainst = player.compensatedWorld.getStateTypeAt(blockPos.getX(), blockPos.getY(), blockPos.getZ());
-
-        if (placeAgainst.isAir() || Materials.isNoPlaceLiquid(placeAgainst)) {
-            if (placecursor != placeAgainst) {
-                flagAndAlert("ScaffoldE");
-            }
-        }
         if (blockPos.getY() <= bypassdist) return;
-        if (placeAgainst.isAir() || Materials.isNoPlaceLiquid(placeAgainst) || player.isSprinting) {
-            ++countsblock;
-        }
 
-        /*if (placeAgainst.isAir() || Materials.isNoPlaceLiquid(placeAgainst) || player.isSprinting) {
-            if (++ticks >= 21) {
+        if (placeAgainst.isAir() || Materials.isNoPlaceLiquid(placeAgainst) || player.isSneaking) {
                 if (countsblock >= 5) {
                     if (flags) {
                         flagWithSetback();
@@ -60,19 +48,28 @@ public class ScaffoldE extends BlockPlaceCheck implements PacketCheck {
                         place.resync();
                         place.resync();
                         place.resync();
-                    }
-                    else {
+                    } else {
                         flag();
-                        flagAndAlert("blocks: " + countsblock);
+                        flagAndAlert("blocks: " + countsblock  + "time: " + System.currentTimeMillis());
                     }
-                    if (countsblock >= 12) {
+                    if (countsblock >= 10) {
                         countsblock = 0;
                         ticks = 0;
                     }
                 }
+        }
+
+        if (player.isSneaking) {
+            long currentTime = System.currentTimeMillis();
+            if (currentTime - lastSprintTime < 5000) {
+                ++countsblock;
+            } else {
+                countsblock = 0;
+                lastSprintTime = currentTime;
             }
-        }*/
+        }
     }
+
     @Override
     public void reload() {
         super.reload();
@@ -81,5 +78,6 @@ public class ScaffoldE extends BlockPlaceCheck implements PacketCheck {
 
         countsblock = 0;
         ticks = 0;
+        lastSprintTime = System.currentTimeMillis();
     }
 }
