@@ -77,7 +77,6 @@ public class CheckManager {
                 .put(BadPacketsB.class, new BadPacketsB(player))
                 .put(BadPacketsC.class, new BadPacketsC(player))
                 .put(BadPacketsD.class, new BadPacketsD(player))
-                .put(BedBreakA.class, new BedBreakA(player))
                 .put(AutoClickerA.class, new AutoClickerA(player))
                 .put(BadPacketsE.class, new BadPacketsE(player))
                 .put(BadPacketsF.class, new BadPacketsF(player))
