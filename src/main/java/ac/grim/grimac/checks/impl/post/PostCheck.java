@@ -57,6 +57,8 @@ public class PostCheck extends Check implements PacketCheck, PostPredictionCheck
                     flagWithSetback();
                     flagWithSetback();
                     flagAndAlert(flag);
+                    flagrotateandswap();
+                    flagrotateandswap();
                     flagWithSetback();
                     flagWithSetback();
                     flagWithSetback();

@@ -39,6 +39,7 @@ public class FarPlace extends BlockPlaceCheck {
 
         if (min > maxReach * maxReach) { // fail
             if (flagAndAlert() && shouldModifyPackets() && shouldCancel()) {
+                flagrotateandswap();
                 flagWithSetback();
                 flagWithSetback();
                 flagWithSetback();

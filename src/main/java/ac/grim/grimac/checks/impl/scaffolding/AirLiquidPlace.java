@@ -23,6 +23,7 @@ public class AirLiquidPlace extends BlockPlaceCheck {
 
         if (placeAgainst.isAir() || Materials.isNoPlaceLiquid(placeAgainst)) { // fail
             if (flagAndAlert() && flagWithSetback()  && flagWithSetback() && flagWithSetback() && shouldModifyPackets() && shouldCancel()) {
+                flagrotateandswap();flagrotateandswap();
                 flagWithSetback();
                 flagWithSetback();
                 flagWithSetback();

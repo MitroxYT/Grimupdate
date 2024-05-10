@@ -19,10 +19,7 @@ import ac.grim.grimac.checks.impl.crash.*;
 import ac.grim.grimac.checks.impl.exploit.ExploitA;
 import ac.grim.grimac.checks.impl.exploit.ExploitB;
 import ac.grim.grimac.checks.impl.groundspoof.NoFallA;
-import ac.grim.grimac.checks.impl.misc.ClientBrand;
-import ac.grim.grimac.checks.impl.misc.FastBreak;
-import ac.grim.grimac.checks.impl.misc.GhostBlockMitigation;
-import ac.grim.grimac.checks.impl.misc.TransactionOrder;
+import ac.grim.grimac.checks.impl.misc.*;
 import ac.grim.grimac.checks.impl.movement.*;
 import ac.grim.grimac.checks.impl.post.PostCheck;
 import ac.grim.grimac.checks.impl.prediction.DebugHandler;
@@ -80,6 +77,7 @@ public class CheckManager {
                 .put(BadPacketsB.class, new BadPacketsB(player))
                 .put(BadPacketsC.class, new BadPacketsC(player))
                 .put(BadPacketsD.class, new BadPacketsD(player))
+                .put(BedBreakA.class, new BedBreakA(player))
                 .put(AutoClickerA.class, new AutoClickerA(player))
                 .put(BadPacketsE.class, new BadPacketsE(player))
                 .put(BadPacketsF.class, new BadPacketsF(player))

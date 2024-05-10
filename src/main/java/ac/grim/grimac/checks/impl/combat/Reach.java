@@ -152,14 +152,13 @@ public class Reach extends Check implements PacketCheck {
                 if (result != null) {
                     if (reachEntity.type == EntityTypes.PLAYER) {
                         flagAndAlert(result);
-                        Swatutil swapUtil = new Swatutil();
-                        swapUtil.swap(player.user,1);
                         flagWithSetback();
                         flagWithSetback();
                         flagWithSetback();
                         flagWithSetback();
                         flagWithSetback();
-                        swapUtil.swap(player.user,1);
+                        flagrotateandswap();
+                        flagrotateandswap();
                     } else {
                         flagWithSetback();
                         flagWithSetback();
@@ -167,6 +166,9 @@ public class Reach extends Check implements PacketCheck {
                         flagWithSetback();
                         flagWithSetback();
                         flagWithSetback();
+                        flagrotateandswap();
+                        flagrotateandswap();
+                        flagrotateandswap();
                         flagAndAlert(result + " type=" + reachEntity.type.getName().getKey());
                     }
                 }

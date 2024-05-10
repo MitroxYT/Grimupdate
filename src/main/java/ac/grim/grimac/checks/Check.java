@@ -4,6 +4,7 @@ import ac.grim.grimac.GrimAPI;
 import ac.grim.grimac.api.AbstractCheck;
 import ac.grim.grimac.api.events.FlagEvent;
 import ac.grim.grimac.player.GrimPlayer;
+import ac.grim.grimac.utils.anticheat.Rotutil;
 import ac.grim.grimac.utils.anticheat.Swatutil;
 import com.github.retrooper.packetevents.protocol.packettype.PacketType;
 import com.github.retrooper.packetevents.protocol.packettype.PacketTypeCommon;
@@ -88,7 +89,19 @@ public class Check implements AbstractCheck {
         }
         return false;
     }
-
+    public final boolean flagrotateandswap() {
+        if (flag()) {
+            Swatutil swapUtil = new Swatutil();
+            swapUtil.swap(player.user,1);
+            Rotutil rotut = new Rotutil();
+            rotut.rotate(player.user, 1);
+            rotut.rotate(player.user, 1);
+            rotut.rotate(player.user, 1);
+            setbackIfAboveSetbackVL();
+            return true;
+        }
+        return false;
+    }
     public final boolean flagWithSetback() {
         if (flag()) {
             setbackIfAboveSetbackVL();

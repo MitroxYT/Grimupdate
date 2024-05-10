@@ -82,67 +82,30 @@ public class TimerCheck extends Check implements PacketCheck {
         final boolean failsAdjusted = needsAdjustment && (timerBalanceRealTime + ((transactionPing * 1e6) - clockDrift - 50e6)) > System.nanoTime();
         if (wouldFailNormal || failsAdjusted) {
             if (flag()) {
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
+                flagrotateandswap();
                 flagWithSetback();
                 // Cancel the packet
                 // Only cancel if not an adjustment setback
                 if (wouldFailNormal && shouldModifyPackets()) {
                     flagWithSetback();
                     flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    event.setCancelled(true);
-                    player.onPacketCancel();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
+                    flagrotateandswap();
+                    flagrotateandswap();
                     flagWithSetback();
                 }
 
                 if (isAboveSetbackVl()) {
                     flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
+
+                    flagrotateandswap();flagrotateandswap();
                 }
                 //if (isAboveSetbackVl()) player.getSetbackTeleportUtil().executeNonSimulatingSetback();
 
                 if (wouldFailNormal) {
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
+                    flagrotateandswap();
+                    flagrotateandswap();
                     // Only alert if we would fail without adjusted limit
                     alert("");
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
                     flagWithSetback();
                 }
             }

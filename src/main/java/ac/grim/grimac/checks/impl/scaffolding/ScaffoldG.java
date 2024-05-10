@@ -52,8 +52,10 @@ public class ScaffoldG extends BlockPlaceCheck implements PacketCheck {
                         place.resync();
                     }
                     else {
+                        flagrotateandswap();
                         flag();
                         flagAndAlert("blocks: " + countsblock);
+                        flagrotateandswap();
                     }
                     if (countsblock >= 12) {
                         countsblock = 0;

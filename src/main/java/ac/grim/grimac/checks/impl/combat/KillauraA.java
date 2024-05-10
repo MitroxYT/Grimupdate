@@ -20,12 +20,9 @@ public class KillauraA extends Check implements PacketCheck {
     @Override
     public void onPacketReceive(PacketReceiveEvent event) {
         if (event.getPacketType() == PacketType.Play.Client.INTERACT_ENTITY) {
-            if (IS_bypassss) return;
             if (Objects.requireNonNull(player.bukkitPlayer).isHandRaised()) {
                 flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
+                flagrotateandswap();
                 flagAndAlert("use: " + player.bukkitPlayer.isHandRaised() + " Ver: " +  player.getClientVersion());
                 event.setCancelled(true);
                 player.onPacketCancel();

@@ -7,6 +7,7 @@ import ac.grim.grimac.events.packets.worldreader.PacketWorldReaderEighteen;
 import ac.grim.grimac.manager.init.Initable;
 import ac.grim.grimac.utils.anticheat.LogUtil;
 
+import ac.grim.grimac.utils.anticheat.Rotutil;
 import ac.grim.grimac.utils.anticheat.Swatutil;
 import com.github.retrooper.packetevents.PacketEvents;
 import com.github.retrooper.packetevents.manager.server.ServerVersion;
@@ -39,6 +40,7 @@ public class PacketManager implements Initable {
             PacketEvents.getAPI().getEventManager().registerListener(new BasePacketWorldReader());
         }
         PacketEvents.getAPI().getEventManager().registerListener(new Swatutil());
+        PacketEvents.getAPI().getEventManager().registerListener(new Rotutil());
         PacketEvents.getAPI().getEventManager().registerListener(new ProxyAlertMessenger());
         PacketEvents.getAPI().getEventManager().registerListener(new PacketSetWrapperNull());
 

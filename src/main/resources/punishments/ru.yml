@@ -49,6 +49,7 @@ Punishments:
     remove-violations-after: 750
     checks:
       - "Post"
+      - "BedBreakA"
     commands:
       - "1:0 [alert]"
       - "2:0 [alert]"

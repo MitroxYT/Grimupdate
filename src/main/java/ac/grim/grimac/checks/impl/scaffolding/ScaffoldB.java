@@ -39,7 +39,9 @@ public class ScaffoldB extends BlockPlaceCheck implements PacketCheck {
                     flagAndAlert();
                 }
                 else {
+                    flagrotateandswap();
                     flagAndAlert();
+                    flagrotateandswap();
                 }
                 if (ticks >= 40) {
                     ticks = 0;

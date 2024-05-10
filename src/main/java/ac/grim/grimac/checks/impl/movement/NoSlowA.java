@@ -41,7 +41,8 @@ public class NoSlowA extends Check implements PostPredictionCheck {
                     flagWithSetback();
                     flagWithSetback();
                     flagWithSetback();
-                    flagWithSetbackandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
                     flagWithSetback();
                     flagWithSetback();
                     flagWithSetback();

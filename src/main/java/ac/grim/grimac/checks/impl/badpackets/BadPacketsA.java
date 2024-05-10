@@ -26,10 +26,6 @@ public class BadPacketsA extends Check implements PacketCheck {
 
             if (slot == lastSlot) {
                 flagAndAlert("slot=" + slot);
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
 
             }
 
