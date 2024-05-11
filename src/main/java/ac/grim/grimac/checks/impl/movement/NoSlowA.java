@@ -9,7 +9,7 @@ import ac.grim.grimac.utils.anticheat.Swatutil;
 import ac.grim.grimac.utils.anticheat.update.PredictionComplete;
 import com.github.retrooper.packetevents.protocol.player.ClientVersion;
 import org.bukkit.entity.Player;
-
+//хуй
 @CheckData(name = "NoSlowA", configName = "NoSlowA", setback = 1)
 public class NoSlowA extends Check implements PostPredictionCheck {
     double offsetToFlag;
