@@ -5,6 +5,7 @@ import ac.grim.grimac.api.AbstractCheck;
 import ac.grim.grimac.checks.impl.Inventory.InventoryA;
 import ac.grim.grimac.checks.impl.Inventory.InventoryB;
 import ac.grim.grimac.checks.impl.Inventory.InventoryC;
+import ac.grim.grimac.checks.impl.NoSwing.NoSwingA;
 import ac.grim.grimac.checks.impl.aim.AimDuplicateLook;
 import ac.grim.grimac.checks.impl.aim.AimModulo360;
 
@@ -12,6 +13,7 @@ import ac.grim.grimac.checks.impl.aim.processor.AimProcessor;
 import ac.grim.grimac.checks.impl.autoclicker.AutoClickerA;
 import ac.grim.grimac.checks.impl.badpackets.*;
 import ac.grim.grimac.checks.impl.baritone.Baritone;
+import ac.grim.grimac.checks.impl.baritone.BaritoneB;
 import ac.grim.grimac.checks.impl.combat.KillauraA;
 import ac.grim.grimac.checks.impl.combat.KillauraB;
 import ac.grim.grimac.checks.impl.combat.Reach;
@@ -74,6 +76,7 @@ public class CheckManager {
                 .put(BadPacketsO.class, new BadPacketsO(player))
                 .put(InventoryC.class, new InventoryC(player))
                 .put(BadPacketsA.class, new BadPacketsA(player))
+                .put(NoSwingA.class, new NoSwingA(player))
                 .put(BadPacketsB.class, new BadPacketsB(player))
                 .put(BadPacketsC.class, new BadPacketsC(player))
                 .put(BadPacketsD.class, new BadPacketsD(player))
@@ -100,6 +103,7 @@ public class CheckManager {
                 .put(BadPacketsV.class, new BadPacketsV(player))
                 .put(BadPacketsW.class, new BadPacketsW(player))
                 .put(FastBreak.class, new FastBreak(player))
+                .put(BaritoneB.class, new BaritoneB(player))
                 .put(KillauraA.class, new KillauraA(player))
                 .put(TransactionOrder.class, new TransactionOrder(player))
                 .put(NoSlowB.class, new NoSlowB(player))

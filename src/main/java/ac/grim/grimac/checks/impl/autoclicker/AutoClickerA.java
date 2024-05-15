@@ -17,7 +17,7 @@ public class AutoClickerA extends Check implements PacketCheck {
 
     @Override
     public void onPacketReceive(final PacketReceiveEvent event) {
-        if (player.isSprinting) {
+        if (player.isSneaking) {
             if (++ticks >= 20) {
                 if (cps > flagclick && !(event.getPacketType() == PacketType.Play.Client.PLAYER_DIGGING) && !(event.getPacketType() == PacketType.Play.Client.PLAYER_BLOCK_PLACEMENT)) {
                     flagAndAlert("cps=" + cps);

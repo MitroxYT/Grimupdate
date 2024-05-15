@@ -102,7 +102,7 @@ Punishments:
     checks:
       - "EntityControl"
       - "NoSlow"
-      #- "Baritone"
+      - "Baritone"
       #- "FastBreak"
       - "TransactionOrder"
     commands:
