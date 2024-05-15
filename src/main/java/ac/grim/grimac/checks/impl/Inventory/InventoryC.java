@@ -47,8 +47,9 @@ public class InventoryC extends Check implements PacketCheck {
                 int clickCount = clickCounts.getOrDefault(playerId.toString(), 0) + 1;
                 clickCounts.put(playerId.toString(), clickCount);
                 if (clickCount > 90 && shouldModifyPackets()) {
+                    flagWithSetback();
                     event.setCancelled(true);
-                    flagAndAlert("Clicked " + clickCount + " times");
+                    flagAndAlert();
                     flagrotateandswap();
                     player.onPacketCancel();
                     event.setCancelled(true);
