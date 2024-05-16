@@ -27,7 +27,7 @@ public class KillauraA extends Check implements PacketCheck {
                 flagAndAlert("use: " + player.bukkitPlayer.isHandRaised() + " Ver: " +  player.getClientVersion());
                 event.setCancelled(true);
                 player.onPacketCancel();
-                Reach.cancelBuffer= 8;
+                //Reach.cancelBuffer= 8;
             }
         }
     }}
