@@ -5,6 +5,7 @@ import ac.grim.grimac.api.AbstractCheck;
 import ac.grim.grimac.checks.impl.Inventory.InventoryA;
 import ac.grim.grimac.checks.impl.Inventory.InventoryB;
 import ac.grim.grimac.checks.impl.Inventory.InventoryC;
+import ac.grim.grimac.checks.impl.Inventory.InventoryD;
 import ac.grim.grimac.checks.impl.NoSwing.NoSwingA;
 import ac.grim.grimac.checks.impl.aim.AimDuplicateLook;
 import ac.grim.grimac.checks.impl.aim.AimModulo360;
@@ -78,6 +79,8 @@ public class CheckManager {
                 .put(BadPacketsA.class, new BadPacketsA(player))
                 .put(NoSwingA.class, new NoSwingA(player))
                 .put(BadPacketsY.class, new BadPacketsY(player))
+                .put(InventoryD.class, new InventoryD(player))
+                .put(NoslowC.class, new NoslowC(player))
                 .put(BadPacketsB.class, new BadPacketsB(player))
                 .put(BadPacketsC.class, new BadPacketsC(player))
                 .put(BadPacketsD.class, new BadPacketsD(player))

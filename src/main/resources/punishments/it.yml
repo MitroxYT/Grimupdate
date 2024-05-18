@@ -1,79 +1,130 @@
-# %check_name% - name of the check
-# %vl% - violations
-# %verbose% - extra information
-# %player% - player name
+# %check_name% - Название проверки
+# %vl% - Уровень нарушения
+# %verbose% - Мини дебаг при детекте
+# %player% - ник игрока
 # [alert] - special command to alert
 # [webhook] - special command to alert to discord webhook
 # [proxy] - special command to alert to other servers connected to your proxy (BungeeCord/Velocity)
 Punishments:
   Simulation:
-    remove-violations-after: 300
+    # After how many seconds should a violation be removed?
+    remove-violations-after: 750
+    # This section will match all checks with the name,
+    # To exclude a check that would otherwise be matched, put an exclamation mark in front of the name
+    # For example, !BadPacketsN
     checks:
       - "Simulation"
       - "GroundSpoof"
       - "Timer"
       - "NoFall"
+    # Threshold:Interval Command
+    #
+    # Example, to kick the player with the message "incorrect movement!" after 100 violations, with no interval
+    # commands:
+    # - "100:0 kick %player% incorrect movement!"
+    # 0 means execute exactly once
+    # - "100:50 say %player% is cheating"
+    # Execute when the user hits flag 100, and after that, every 50th flag after 100
+    #
     commands:
-      - "100:40 [alert]"
-      - "100:100 [webhook]"
-      - "100:100 [proxy]"
-  Knockback:
-    remove-violations-after: 300
+      - "20:1 [alert]"
+      - "40:0 [alert]"
+      - "60:0 [alert]"
+      - "70:0 [alert]"
+      - "80:0 [alert]"
+      - "50:0 [webhook]"
+      - "100:0 [alert]"
+      #- "100:0 kick %player% Speeding"
+      - "100:0 say %player% &c%check_name%"
+  Knockback: #проверка на Velocity Антиоткидывание
+    remove-violations-after: 750
     checks:
       - "Knockback"
       - "Explosion"
     commands:
-      - "5:5 [alert]"
-      - "20:20 [webhook]"
-      - "20:20 [proxy]"
-  Post:
-    remove-violations-after: 300
+      - "5:0 [alert]"
+      - "7:0 [alert]"
+      - "7:0 say %player% &cИспользовани читов --sender=&Античит"
+  Post: #чек на мидл клик пеарлл и тд лучше не менять
+    remove-violations-after: 750
     checks:
       - "Post"
+      - "BedBreakA"
     commands:
-      - "20:20 [alert]"
-      - "40:40 [webhook]"
-      - "40:40 [proxy]"
+      - "1:0 [alert]"
+      - "2:0 [alert]"
+      - "2:0 say %player% &c%check_name%"
   BadPackets:
-    remove-violations-after: 300
+    remove-violations-after: 750
     checks:
       - "BadPackets"
+      - "!BadPacketsE" #включать на ваше усмотрение может пофиксить некоторые фрии камы в читах но могут быть ложные срабатывания
       - "Crash"
     commands:
-      - "20:20 [alert]"
-      - "40:40 [webhook]"
-      - "40:40 [proxy]"
-  Reach:
+      - "20:0 [alert]"
+      - "40:0 [alert]"
+      - "40:0 say %player% &c%check_name%"
+  Inventory:
     remove-violations-after: 300
     checks:
-      - "Reach"
+      - "Inventory"
     commands:
-      - "5:5 [alert]"
-      - "5:5 [webhook]"
-      - "5:5 [proxy]"
-  Misc:
+      - "1:0 [alert]"
+      - "2:0 damageoff %player%"
+      - "4:0 [alert]"
+      - "6:0 [alert]"
+      - "8:0 [alert]"
+      - "10:0 [alert]"
+      - "10:0 say %player% &c%check_name%"
+  Hitbox: #Проверка на увеличиные Хит боксы у игрока
     remove-violations-after: 300
+    checks:
+      - "Hitbox"
+    commands:
+      - "2:2 [alert]"
+      - "2:0 grim swap %player%"
+      - "5:0 [alert]"
+      - "6:0 [alert]"
+      #- "15:0 [alert]"
+      - "6:1 say %player% &c%check_name%"
+  Scaffold: #Проверки на Scaffold и другие блок взломы
+    remove-violations-after: 150
+    checks:
+      - "Place"
+      - "Scaffold"
+    commands:
+      - "5:1 [alert]"
+      - "10:0 [alert]"
+      - "20:0 [alert]"
+      - "40:0 [webhook]"
+      - "60:0 say %player% &c%check_name%"
+  Misc:
+    remove-violations-after: 750
     checks:
       - "EntityControl"
       - "NoSlow"
-      - "Place"
       - "Baritone"
-      - "FastBreak"
+      #- "FastBreak"
       - "TransactionOrder"
     commands:
-      - "10:5 [alert]"
-      - "20:10 [webhook]"
-      - "20:10 [proxy]"
+      - "10:1 [alert]"
+      - "20:0 [alert]"
+      - "30:0 [alert]"
+      - "30:0 [webhook]"
+      - "30:0 say %player% &c%check_name%"
   Combat:
-    remove-violations-after: 300
+    remove-violations-after: 500
     checks:
-      - "Killaura"
       - "Aim"
+      - "KillauraA"
     commands:
-      - "20:40 [alert]"
+      - "1:1 [alert]"
+      - "6:0 [alert]"
+      - "6:0 say %player% &c%check_name%"
+  # As of 2.2.10, there are no AutoClicker checks and this is a placeholder. Grim will include AutoClicker checks in the future.
   Autoclicker:
-    remove-violations-after: 300
+    remove-violations-after: 750
     checks:
-      - "Autoclicker"
+      - "AutoClickerA"
     commands:
-      - "20:40 [alert]"
+      - "5:0 [alert]"
