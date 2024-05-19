@@ -206,15 +206,8 @@ public class KnockbackHandler extends Check implements PostPredictionCheck {
                     //player.getSetbackTeleportUtil().executeViolationSetback();
                 } else if (flag()) { // This velocity was sent by the server.
                     if (player.likelyKB.offset >= immediate || threshold >= maxAdv) {
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        player.getSetbackTeleportUtil().executeNonSimulatingSetback();
-                        player.getSetbackTeleportUtil().executeNonSimulatingSetback();
-                        player.getSetbackTeleportUtil().shouldBlockMovement();
-                        player.getSetbackTeleportUtil().executeViolationSetback();
+                        flagrotateandswap();
+                        flagrotateandswap();
                     }
 
                     String formatOffset = "o: " + formatOffset(player.likelyKB.offset);
@@ -222,55 +215,9 @@ public class KnockbackHandler extends Check implements PostPredictionCheck {
                     if (player.likelyKB.offset == Integer.MAX_VALUE) {
                         formatOffset = "ignored knockback";
                     }
-                    flagWithSetback();flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
+                    flagrotateandswap();
                     alert(formatOffset);
-                    player.getSetbackTeleportUtil().shouldBlockMovement();
-                    player.getSetbackTeleportUtil().shouldBlockMovement();
-                    player.getSetbackTeleportUtil().shouldBlockMovement();
-                    player.getSetbackTeleportUtil().shouldBlockMovement();
-                    player.getSetbackTeleportUtil().shouldBlockMovement();
-                    player.getSetbackTeleportUtil().shouldBlockMovement();
-                    player.getSetbackTeleportUtil().shouldBlockMovement();
-                    player.getSetbackTeleportUtil().shouldBlockMovement();
-                    player.getSetbackTeleportUtil().shouldBlockMovement();
-                    player.getSetbackTeleportUtil().shouldBlockMovement();                    player.getSetbackTeleportUtil().shouldBlockMovement();
-                    player.getSetbackTeleportUtil().shouldBlockMovement();
-                    player.getSetbackTeleportUtil().shouldBlockMovement();
-                    player.getSetbackTeleportUtil().shouldBlockMovement();
-                    player.getSetbackTeleportUtil().shouldBlockMovement();
-                    player.getSetbackTeleportUtil().shouldBlockMovement();
-                    player.getSetbackTeleportUtil().shouldBlockMovement();
-                    player.getSetbackTeleportUtil().shouldBlockMovement();
-                    player.getSetbackTeleportUtil().shouldBlockMovement();
-                    player.getSetbackTeleportUtil().shouldBlockMovement();
-                    flagWithSetback();
-                    flagWithSetback();
-                    player.getSetbackTeleportUtil().shouldBlockMovement();
-                    player.getSetbackTeleportUtil().shouldBlockMovement();
-                    player.getSetbackTeleportUtil().shouldBlockMovement();
-                    player.getSetbackTeleportUtil().shouldBlockMovement();
-                    player.getSetbackTeleportUtil().shouldBlockMovement();
-                    player.getSetbackTeleportUtil().shouldBlockMovement();
-                    player.getSetbackTeleportUtil().shouldBlockMovement();
-                    player.getSetbackTeleportUtil().shouldBlockMovement();
-                    player.getSetbackTeleportUtil().shouldBlockMovement();
-                    player.getSetbackTeleportUtil().shouldBlockMovement();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    player.onPacketCancel();
-                    player.onPacketCancel();player.onPacketCancel();player.onPacketCancel();player.onPacketCancel();player.onPacketCancel();
-                    //player.getSetbackTeleportUtil().executeNonSimulatingSetback();
-                    //player.getSetbackTeleportUtil().executeNonSimulatingSetback();
-                    player.getSetbackTeleportUtil().shouldBlockMovement();
-                    player.getSetbackTeleportUtil().shouldBlockMovement();                    player.getSetbackTeleportUtil().shouldBlockMovement();                    player.getSetbackTeleportUtil().shouldBlockMovement();
-                    //player.getSetbackTeleportUtil().executeViolationSetback();
+                    flagrotateandswap();
                 } else {
                     reward();
                 }

@@ -9,7 +9,7 @@ import ac.grim.grimac.utils.anticheat.update.RotationUpdate;
 import ac.grim.grimac.utils.data.HeadRotation;
 import ac.grim.grimac.utils.math.GrimMath;
 
-@CheckData(name = "Baritone")
+@CheckData(name = "BaritoneA")
 public class Baritone extends Check implements RotationCheck {
     public Baritone(GrimPlayer playerData) {
         super(playerData);

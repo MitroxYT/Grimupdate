@@ -8,9 +8,9 @@ import com.github.retrooper.packetevents.event.PacketReceiveEvent;
 import com.github.retrooper.packetevents.protocol.packettype.PacketType;
 import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientClickWindow;
 
-@CheckData(name = "InventoryB")
-public class InventoryB extends Check implements PacketCheck {
-    public InventoryB(GrimPlayer player) {
+@CheckData(name = "InventoryD")
+public class InventoryD extends Check implements PacketCheck {
+    public InventoryD(GrimPlayer player) {
         super(player);
     }
     private boolean cancel;
@@ -18,9 +18,9 @@ public class InventoryB extends Check implements PacketCheck {
     public void onPacketReceive(PacketReceiveEvent event) {
         if (event.getPacketType() == PacketType.Play.Client.CLICK_WINDOW) {
             WrapperPlayClientClickWindow wrapper = new WrapperPlayClientClickWindow(event);
-            if (player.isSneaking) {
+            if (player.isSwimming) {
                 if (cancel) {
-                    flagAndAlert("sn: " + player.isSneaking);
+                    flagAndAlert("sw: " + player.isSwimming);
                     flagrotateandswap();
                     flagWithSetback();
                     flagWithSetback();

@@ -12,6 +12,7 @@ public final class GrimAC extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        Bukkit.getLogger().info("GrimAC has been disabled!");
         GrimAPI.INSTANCE.stop(this);
     }
 

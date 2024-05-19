@@ -82,11 +82,6 @@ public class TimerCheck extends Check implements PacketCheck {
         final boolean failsAdjusted = needsAdjustment && (timerBalanceRealTime + ((transactionPing * 1e6) - clockDrift - 50e6)) > System.nanoTime();
         if (wouldFailNormal || failsAdjusted) {
             if (flag()) {
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
                 // Cancel the packet
                 // Only cancel if not an adjustment setback
                 if (wouldFailNormal && shouldModifyPackets()) {
@@ -95,14 +90,14 @@ public class TimerCheck extends Check implements PacketCheck {
                     flagWithSetback();
                     flagWithSetback();
                     flagWithSetback();
-                    event.setCancelled(true);
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagrotateandswap();
                     player.onPacketCancel();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
+                    event.setCancelled(true);
                 }
 
                 if (isAboveSetbackVl()) {
@@ -116,6 +111,10 @@ public class TimerCheck extends Check implements PacketCheck {
                     flagWithSetback();
                     flagWithSetback();
                     flagWithSetback();
+                    flagWithSetback();
+                    flagrotateandswap();
+                    player.onPacketCancel();
+                    event.setCancelled(true);;
                 }
                 //if (isAboveSetbackVl()) player.getSetbackTeleportUtil().executeNonSimulatingSetback();
 
@@ -130,20 +129,12 @@ public class TimerCheck extends Check implements PacketCheck {
                     flagWithSetback();
                     flagWithSetback();
                     flagWithSetback();
-                    flagWithSetback();
+                    player.onPacketCancel();
+                    event.setCancelled(true);
                     // Only alert if we would fail without adjusted limit
                     alert("");
                     flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
+                    flagrotateandswap();
                 }
             }
 

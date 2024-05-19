@@ -7,10 +7,13 @@ import ac.grim.grimac.player.GrimPlayer;
 import com.github.retrooper.packetevents.event.PacketReceiveEvent;
 import com.github.retrooper.packetevents.protocol.packettype.PacketType;
 import com.github.retrooper.packetevents.protocol.player.GameMode;
-
-@CheckData(name = "BadPacketsR", decay = 0.25, experimental = true)
-public class BadPacketsR extends Check implements PacketCheck {
-    public BadPacketsR(final GrimPlayer player) {
+/*
+Author: NurcaDev9
+Date: 12.05.24
+ */
+@CheckData(name = "FreeCam", decay = 0.25, experimental = false, setback = 1)
+public class FreeCam extends Check implements PacketCheck {
+    public FreeCam(final GrimPlayer player) {
         super(player);
     }
 
@@ -26,13 +29,17 @@ public class BadPacketsR extends Check implements PacketCheck {
             long diff = (System.currentTimeMillis() - lastTransTime);
             if (diff > 2000 && ms > 2000) {
                 if (positions == 0 && clock != 0 && player.gamemode != GameMode.SPECTATOR && !player.compensatedEntities.getSelf().isDead) {
-                    flagAndAlert("time=" + ms + "ms, " + "lst=" + diff + "ms, positions=" + positions);
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
+                    if (flagAndAlert() && shouldModifyPackets()) {
+                        flagWithSetback();
+                        flagWithSetback();
+                        flagWithSetback();
+                        flagWithSetback();
+                        flagWithSetback();
+                        flagWithSetback();
+                        event.setCancelled(true);
+                        player.onPacketCancel();
+                        flagrotateandswap();
+                    }
                 } else {
                     reward();
                 }

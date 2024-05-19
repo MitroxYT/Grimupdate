@@ -58,8 +58,14 @@ Phase:
   setbackvl: 1 # Глитч с блоками может позволить забраться на стену, к тому же эта проверка относительно стабильна
   decay: 0.005
 
-ScaffoldA:
+Scaffold:
   cancelvl: 10
+  G:
+    mindistance: 80
+    Cancel-build: false
+  B:
+    mindistance: 80
+    Cancel-build: false
 
 FabricatedPlace:
   cancelvl: 5

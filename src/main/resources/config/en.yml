@@ -58,8 +58,14 @@ Phase:
   setbackvl: 1 # Глитч с блоками может позволить забраться на стену, к тому же эта проверка относительно стабильна
   decay: 0.005
 
-ScaffoldA:
+Scaffold:
   cancelvl: 10
+  G:
+    mindistance: 80
+    Cancel-build: false
+  B:
+    mindistance: 80
+    Cancel-build: false
 
 FabricatedPlace:
   cancelvl: 5
@@ -105,6 +111,9 @@ KillauraA:
 InventoryA:
   cancel-click: false
   drift: 120
+InventoryB:
+  cancel-click: true
+  drift: 120
 Explosion:
   threshold: 0.001
   setbackvl: 3
@@ -112,7 +121,7 @@ TimerA:
   setbackvl: 1
   # Миллисекунды, которые игрок может накапливать для последующего использования, когда он отстает.
   # Потенциально может позволить 1.8 обходов: быстрое использование/быстрое исцеление/быстрый лук, если установлено слишком высокое значение, 120 мс кажется хорошим балансом
-  drift: 80
+  drift: 10
   # Ping at which the check will start to limit timer balance, to prevent abuse.
   # Can cause some setbacks for legitimate players but only if they are over this ping threshold.
   # -1 to disable
