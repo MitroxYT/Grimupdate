@@ -8,9 +8,9 @@ import com.github.retrooper.packetevents.event.PacketReceiveEvent;
 import com.github.retrooper.packetevents.protocol.packettype.PacketType;
 import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientClickWindow;
 
-@CheckData(name = "InventoryA", setback = 1)
-public class InventoryA extends Check implements PacketCheck {
-    public InventoryA(GrimPlayer player) {
+@CheckData(name = "InventoryD")
+public class InventoryD extends Check implements PacketCheck {
+    public InventoryD(GrimPlayer player) {
         super(player);
     }
     private boolean cancel;
@@ -18,13 +18,9 @@ public class InventoryA extends Check implements PacketCheck {
     public void onPacketReceive(PacketReceiveEvent event) {
         if (event.getPacketType() == PacketType.Play.Client.CLICK_WINDOW) {
             WrapperPlayClientClickWindow wrapper = new WrapperPlayClientClickWindow(event);
-            if (player.isSprinting) {
+            if (player.isSwimming) {
                 if (cancel) {
-<<<<<<< Updated upstream
-=======
-                    event.setCancelled(true);
->>>>>>> Stashed changes
-                    flagAndAlert("sp: " + player.isSprinting);
+                    flagAndAlert("sw: " + player.isSwimming);
                     flagWithSetback();
                     flagWithSetback();
                     flagWithSetback();
@@ -49,12 +45,10 @@ public class InventoryA extends Check implements PacketCheck {
                 }
             }
         }
-
-
     }
     @Override
     public void reload() {
         super.reload();
-        this.cancel = getConfig().getBooleanElse("InventoryA.cancel-click", false);
+        this.cancel = getConfig().getBooleanElse("InventoryB.cancel-click", false);
     }
 }

@@ -44,6 +44,23 @@ public class NoSlowA extends Check implements PostPredictionCheck {
                     flagWithSetback();
                     flagWithSetback();
                     flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetback();
+                    if (shouldModifyPackets()) {
+                        player.onPacketCancel();
+                    }
                     player.onPacketCancel();
                     Swatutil swapUtil = new Swatutil();
                     swapUtil.swap(player.user, 1);

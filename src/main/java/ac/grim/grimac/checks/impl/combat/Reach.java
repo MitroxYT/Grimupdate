@@ -159,7 +159,10 @@ public class Reach extends Check implements PacketCheck {
                         flagWithSetback();
                         flagWithSetback();
                         flagWithSetback();
+<<<<<<< Updated upstream
                         swapUtil.swap(player.user,1);
+=======
+>>>>>>> Stashed changes
                     } else {
                         flagWithSetback();
                         flagWithSetback();
@@ -168,6 +171,14 @@ public class Reach extends Check implements PacketCheck {
                         flagWithSetback();
                         flagWithSetback();
                         flagAndAlert(result + " type=" + reachEntity.type.getName().getKey());
+<<<<<<< Updated upstream
+=======
+                        flagWithSetback();
+                        flagWithSetback();
+                        flagWithSetback();
+                        flagWithSetback();
+                        flagWithSetback();
+>>>>>>> Stashed changes
                     }
                 }
             }

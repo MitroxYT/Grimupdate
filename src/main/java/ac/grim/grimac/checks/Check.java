@@ -79,6 +79,7 @@ public class Check implements AbstractCheck {
         violations++;
         return true;
     }
+<<<<<<< Updated upstream
     public final boolean flagWithSetbackandswap() {
         if (flag()) {
             setbackIfAboveSetbackVL();
@@ -89,6 +90,8 @@ public class Check implements AbstractCheck {
         return false;
     }
 
+=======
+>>>>>>> Stashed changes
     public final boolean flagWithSetback() {
         if (flag()) {
             setbackIfAboveSetbackVL();

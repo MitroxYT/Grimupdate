@@ -74,6 +74,13 @@ public class PositionPlace extends BlockPlaceCheck {
                 flagWithSetback();
                 flagWithSetback();
                 flagWithSetback();
+                flagWithSetback();
+                flagWithSetback();
+                flagWithSetback();
+                flagWithSetback();
+                flagWithSetback();
+                flagWithSetback();
+                flagWithSetback();
                 place.resync();
             }
         }

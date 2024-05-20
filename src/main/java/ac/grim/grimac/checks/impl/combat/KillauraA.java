@@ -23,10 +23,35 @@ public class KillauraA extends Check implements PacketCheck {
                 flagWithSetback();
                 flagWithSetback();
                 flagWithSetback();
+<<<<<<< Updated upstream
                 flagAndAlert("use: " + player.bukkitPlayer.isHandRaised() + " Ver: " +  player.getClientVersion());
                 event.setCancelled(true);
                 player.onPacketCancel();
                 Reach.cancelBuffer= 8;
+=======
+                flagWithSetback();
+                flagWithSetback();
+                flagWithSetback();
+                flagWithSetback();
+                flagWithSetback();
+                flagWithSetback();
+                flagWithSetback();
+                flagWithSetback();
+                flagWithSetback();
+                flagWithSetback();
+                flagWithSetback();
+                flagAndAlert("use: " + player.bukkitPlayer.isHandRaised() + " Ver: " +  player.getClientVersion());
+                event.setCancelled(true);
+                player.onPacketCancel();
+                flagWithSetback();
+                flagWithSetback();
+                flagWithSetback();
+                flagWithSetback();
+                flagWithSetback();
+                flagWithSetback();
+                flagWithSetback();
+                //Reach.cancelBuffer= 8;
+>>>>>>> Stashed changes
             }
         }
     }}

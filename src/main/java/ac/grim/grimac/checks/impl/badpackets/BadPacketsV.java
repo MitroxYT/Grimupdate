@@ -42,6 +42,17 @@ public class BadPacketsV extends Check implements PacketCheck {
                 flagWithSetback();
                 flagWithSetback();
                 flagWithSetback();
+<<<<<<< Updated upstream
+=======
+                flagWithSetback();
+                flagWithSetback();
+                flagWithSetback();
+                flagWithSetback();
+                flagWithSetback();
+                flagWithSetback();
+                flagWithSetback();
+                flagWithSetback();
+>>>>>>> Stashed changes
                 event.setCancelled(true);
                 player.onPacketCancel();
                 flagWithSetback();

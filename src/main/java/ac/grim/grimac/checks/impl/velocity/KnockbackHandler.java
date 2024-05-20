@@ -207,6 +207,7 @@ public class KnockbackHandler extends Check implements PostPredictionCheck {
                 } else if (flag()) { // This velocity was sent by the server.
                     if (player.likelyKB.offset >= immediate || threshold >= maxAdv) {
                         flagWithSetback();
+<<<<<<< Updated upstream
                         flagWithSetback();
                         flagWithSetback();
                         flagWithSetback();
@@ -215,6 +216,8 @@ public class KnockbackHandler extends Check implements PostPredictionCheck {
                         player.getSetbackTeleportUtil().executeNonSimulatingSetback();
                         player.getSetbackTeleportUtil().shouldBlockMovement();
                         player.getSetbackTeleportUtil().executeViolationSetback();
+=======
+>>>>>>> Stashed changes
                     }
 
                     String formatOffset = "o: " + formatOffset(player.likelyKB.offset);
@@ -222,6 +225,7 @@ public class KnockbackHandler extends Check implements PostPredictionCheck {
                     if (player.likelyKB.offset == Integer.MAX_VALUE) {
                         formatOffset = "ignored knockback";
                     }
+<<<<<<< Updated upstream
                     flagWithSetback();flagWithSetback();
                     flagWithSetback();
                     flagWithSetback();
@@ -271,6 +275,9 @@ public class KnockbackHandler extends Check implements PostPredictionCheck {
                     player.getSetbackTeleportUtil().shouldBlockMovement();
                     player.getSetbackTeleportUtil().shouldBlockMovement();                    player.getSetbackTeleportUtil().shouldBlockMovement();                    player.getSetbackTeleportUtil().shouldBlockMovement();
                     //player.getSetbackTeleportUtil().executeViolationSetback();
+=======
+                    alert(formatOffset);
+>>>>>>> Stashed changes
                 } else {
                     reward();
                 }

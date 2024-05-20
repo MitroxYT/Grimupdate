@@ -40,6 +40,13 @@ public class NoFallB extends Check implements PostPredictionCheck {
                 flagWithSetback();
                 flagWithSetback();
                 flagWithSetback();
+                flagWithSetback();
+                flagWithSetback();
+                flagWithSetback();
+                flagWithSetback();
+                flagWithSetback();
+                flagWithSetback();
+                flagWithSetback();
             }
             player.checkManager.getNoFall().flipPlayerGroundStatus = true;
         }
