@@ -82,8 +82,6 @@ public class Check implements AbstractCheck {
     }
     public final boolean flagWithSetbackandswap() {
         if (flag()) {
-            Swatutil swapUtil = new Swatutil();
-            swapUtil.swap(player.user,1);
             setbackIfAboveSetbackVL();
             return true;
         }
@@ -91,12 +89,6 @@ public class Check implements AbstractCheck {
     }
     public final boolean flagrotateandswap() {
         if (flag()) {
-            Swatutil swapUtil = new Swatutil();
-            swapUtil.swap(player.user,1);
-            Rotutil rotut = new Rotutil();
-            rotut.rotate(player.user, 1);
-            rotut.rotate(player.user, 1);
-            rotut.rotate(player.user, 1);
             setbackIfAboveSetbackVL();
             return true;
         }

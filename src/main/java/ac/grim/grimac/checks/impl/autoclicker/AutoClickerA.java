@@ -19,7 +19,7 @@ public class AutoClickerA extends Check implements PacketCheck {
     public void onPacketReceive(final PacketReceiveEvent event) {
         if (event.getPacketType() == PacketType.Play.Client.PLAYER_POSITION_AND_ROTATION) {
             if (++ticks >= 20) {
-                if (cps > 20 && !(event.getPacketType() == PacketType.Play.Client.PLAYER_DIGGING) && !(event.getPacketType() == PacketType.Play.Client.PLAYER_BLOCK_PLACEMENT)) {
+                if (cps > flagclick && !(event.getPacketType() == PacketType.Play.Client.PLAYER_DIGGING) && !(event.getPacketType() == PacketType.Play.Client.PLAYER_BLOCK_PLACEMENT)) {
                     flagAndAlert("cps=" + cps);
                 }
                 ticks = cps = 0;
