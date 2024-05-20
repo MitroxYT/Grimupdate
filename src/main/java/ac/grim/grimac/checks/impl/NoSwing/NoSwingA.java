@@ -34,13 +34,7 @@ public class NoSwingA extends Check implements PacketCheck {
         } else if (event.getPacketType() == PacketType.Play.Client.PLAYER_BLOCK_PLACEMENT) {
             if (!sentAnimation) {
                 flagAndAlert();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
+                flagrotateandswap();
                 event.setCancelled(true);
             }
         }

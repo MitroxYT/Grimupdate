@@ -68,13 +68,7 @@ public class PositionPlace extends BlockPlaceCheck {
 
         if (flag) {
             if (flagAndAlert() && shouldModifyPackets() && shouldCancel()) {
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
+                flagrotateandswap();
                 flagWithSetback();
                 flagWithSetback();
                 flagWithSetback();

@@ -17,11 +17,10 @@ public class AutoClickerA extends Check implements PacketCheck {
 
     @Override
     public void onPacketReceive(final PacketReceiveEvent event) {
-        if (player.isSprinting) {
+        if (event.getPacketType() == PacketType.Play.Client.PLAYER_POSITION_AND_ROTATION) {
             if (++ticks >= 20) {
-                if (cps > flagclick && !(event.getPacketType() == PacketType.Play.Client.PLAYER_DIGGING) && !(event.getPacketType() == PacketType.Play.Client.PLAYER_BLOCK_PLACEMENT)) {
+                if (cps > 20 && !(event.getPacketType() == PacketType.Play.Client.PLAYER_DIGGING) && !(event.getPacketType() == PacketType.Play.Client.PLAYER_BLOCK_PLACEMENT)) {
                     flagAndAlert("cps=" + cps);
-
                 }
                 ticks = cps = 0;
             }
@@ -35,7 +34,6 @@ public class AutoClickerA extends Check implements PacketCheck {
     @Override
     public void reload() {
         super.reload();
-        cps = 0;
         //getConfig().getDoubleElse("NoSlowA.threshold", 0.001);
         this.flagclick = getConfig().getInt("AutoClicker.maxcps");
     }

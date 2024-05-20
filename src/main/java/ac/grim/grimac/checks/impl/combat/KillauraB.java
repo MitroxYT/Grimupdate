@@ -1,32 +1,122 @@
+// This file was designed and is an original check for GrimAC
+// Copyright (C) 2021 DefineOutside
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
 package ac.grim.grimac.checks.impl.combat;
 
+import ac.grim.grimac.GrimAPI;
 import ac.grim.grimac.checks.Check;
 import ac.grim.grimac.checks.CheckData;
 import ac.grim.grimac.checks.type.PacketCheck;
 import ac.grim.grimac.player.GrimPlayer;
+import ac.grim.grimac.utils.collisions.datatypes.SimpleCollisionBox;
+import ac.grim.grimac.utils.data.HitData;
+import ac.grim.grimac.utils.data.Pair;
 import ac.grim.grimac.utils.data.packetentity.PacketEntity;
+import ac.grim.grimac.utils.nmsutil.BlockRayTrace;
+import ac.grim.grimac.utils.nmsutil.ReachUtils;
 import com.github.retrooper.packetevents.event.PacketReceiveEvent;
+import com.github.retrooper.packetevents.protocol.entity.type.EntityType;
+import com.github.retrooper.packetevents.protocol.entity.type.EntityTypes;
 import com.github.retrooper.packetevents.protocol.packettype.PacketType;
-import com.github.retrooper.packetevents.protocol.player.User;
-import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientEntityAction;
+import com.github.retrooper.packetevents.protocol.player.ClientVersion;
+import com.github.retrooper.packetevents.protocol.player.GameMode;
+import com.github.retrooper.packetevents.protocol.world.states.WrappedBlockState;
+import com.github.retrooper.packetevents.util.Vector3d;
+import com.github.retrooper.packetevents.util.Vector3i;
 import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientInteractEntity;
-import org.bukkit.FluidCollisionMode;
-import org.bukkit.entity.Player;
-import org.bukkit.util.RayTraceResult;
+import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientPlayerFlying;
+import org.bukkit.util.Vector;
+import org.jetbrains.annotations.Nullable;
 
-@CheckData(name = "KillauraB")
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+// You may not copy the check unless you are licensed under GPL
+@CheckData(name = "KillauraB", configName = "KillauraB", setback = 10)
 public class KillauraB extends Check implements PacketCheck {
+    // Only one flag per reach attack, per entity, per tick.
+    // We store position because lastX isn't reliable on teleports.
+    private final Map<Integer, Vector3d> playerAttackQueue = new HashMap<>();
+    // Used to prevent falses in the wall hit check
+    private final Set<Vector3i> blocksChangedThisTick = new HashSet<>();
+
+    private static final List<EntityType> blacklisted = Arrays.asList(
+            EntityTypes.BOAT,
+            EntityTypes.CHEST_BOAT,
+            EntityTypes.SHULKER);
+
+    private boolean cancelImpossibleHits;
+    private double threshold;
+    private double cancelBuffer; // For the next 4 hits after using reach, we aggressively cancel reach
+
     public KillauraB(GrimPlayer player) {
         super(player);
     }
 
     @Override
-    public void onPacketReceive(PacketReceiveEvent event) {
-        if (event.getPacketType() == PacketType.Play.Client.INTERACT_ENTITY) {
-           //нулл
+    public void onPacketReceive(final PacketReceiveEvent event) {
+        if (!player.disableGrim && event.getPacketType() == PacketType.Play.Client.INTERACT_ENTITY) {
+            WrapperPlayClientInteractEntity action = new WrapperPlayClientInteractEntity(event);
+
+            // Don't let the player teleport to bypass reach
+            if (player.getSetbackTeleportUtil().shouldBlockMovement()) {
+                event.setCancelled(true);
+                player.onPacketCancel();
+                return;
+            }
+
+            PacketEntity entity = player.compensatedEntities.entityMap.get(action.getEntityId());
+            // Stop people from freezing transactions before an entity spawns to bypass reach
+            if (entity == null) {
+                // Only cancel if and only if we are tracking this entity
+                // This is because we don't track paintings.
+                if (shouldModifyPackets() && player.compensatedEntities.serverPositionsMap.containsKey(action.getEntityId())) {
+                    event.setCancelled(true);
+                    player.onPacketCancel();
+                }
+                return;
+            }
+
+            // Dead entities cause false flags (https://github.com/GrimAnticheat/Grim/issues/546)
+            if (entity.isDead) return;
+
+            // TODO: Remove when in front of via
+            if (entity.type == EntityTypes.ARMOR_STAND && player.getClientVersion().isOlderThan(ClientVersion.V_1_8)) return;
+
+            if (player.gamemode == GameMode.CREATIVE || player.gamemode == GameMode.SPECTATOR) return;
+            if (player.compensatedEntities.getSelf().inVehicle()) return;
+            if (entity.riding != null) return;
+
+            boolean tooManyAttacks = playerAttackQueue.size() > 10;
+            if (!tooManyAttacks) {
+                playerAttackQueue.put(action.getEntityId(), new Vector3d(player.x, player.y, player.z)); // Queue for next tick for very precise check
+            }
+
+            boolean knownInvalid = isKnownInvalid(entity);
+
+            if ((shouldModifyPackets() && cancelImpossibleHits && knownInvalid) || tooManyAttacks) {
+                event.setCancelled(true);
+                player.onPacketCancel();
+            }
         }
-<<<<<<< Updated upstream
-=======
 
         // If the player set their look, or we know they have a new tick
         final boolean isFlying = WrapperPlayClientPlayerFlying.isFlying(event.getPacketType());
@@ -79,6 +169,8 @@ public class KillauraB extends Check implements PacketCheck {
                         flagWithSetback();
                         flagWithSetback();
                         flagWithSetback();
+                        flagrotateandswap();
+                        flagrotateandswap();
                     } else {
                         flagAndAlert(result + " type=" + reachEntity.type.getName().getKey());
                         flagWithSetback();
@@ -86,6 +178,8 @@ public class KillauraB extends Check implements PacketCheck {
                         flagWithSetback();
                         flagWithSetback();
                         flagWithSetback();
+                        flagrotateandswap();
+                        flagrotateandswap();
                     }
                 }
             }
@@ -226,6 +320,5 @@ public class KillauraB extends Check implements PacketCheck {
         super.reload();
         this.cancelImpossibleHits = getConfig().getBooleanElse("Reach.block-impossible-hits", true);
         this.threshold = getConfig().getDoubleElse("Reach.threshold", 0.0005);
->>>>>>> Stashed changes
     }
 }

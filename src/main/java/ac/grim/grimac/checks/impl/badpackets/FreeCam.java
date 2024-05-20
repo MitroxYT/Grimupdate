@@ -38,13 +38,7 @@ public class FreeCam extends Check implements PacketCheck {
                         flagWithSetback();
                         event.setCancelled(true);
                         player.onPacketCancel();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
+                        flagrotateandswap();
                     }
                 } else {
                     reward();

@@ -28,20 +28,7 @@ public class ScaffoldB extends BlockPlaceCheck implements PacketCheck {
                 if(flags) {
                     flagWithSetback();
                     flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
+                    flagWithSetbackandswap();
                     flagWithSetback();
                     place.resync();
                     place.resync();
@@ -52,21 +39,9 @@ public class ScaffoldB extends BlockPlaceCheck implements PacketCheck {
                     flagAndAlert();
                 }
                 else {
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
+                    flagrotateandswap();
                     flagAndAlert();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
+                    flagrotateandswap();
                 }
                 if (ticks >= 40) {
                     ticks = 0;

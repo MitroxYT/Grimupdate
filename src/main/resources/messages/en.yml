@@ -1,9 +1,9 @@
 # \u00BB is » (double >>), ANSI and UTF-8 interpret this differently... you may even see ? due to this
-prefix: "&cGrimNew &8\u00BB"
+prefix: "&c&lАнтичит &8\u00BB"
 
 alerts-enabled: "%prefix% &fОповещения включены"
 alerts-disabled: "%prefix% &fОповещения выключены"
-client-brand-format: "%prefix% &f%player% зашел используя версию %brand%"
+client-brand-format: "%prefix% &f%player% зашел с версии %brand%"
 console-specify-target: "%prefix% &cYou must specify a target as the console!"
 player-not-found: "%prefix% &cPlayer is exempt or offline!"
 player-not-this-server: "%prefix% &cPlayer is not on this server!"
@@ -21,13 +21,13 @@ upload-log-upload-failure: "%prefix% &cSomething went wrong while uploading this
 # %check_name%
 # %vl% - violations
 # %verbose% - extra information from the check such as offsets, not all checks will add information
-alerts-format: "%prefix% &c%player% &fпровалил &c%check_name% &f(x&c%vl%&f) &7%verbose%"
+alerts-format: "%prefix% &c%player% &fвозможно использует &c%check_name%%experimental% &f(x&c%vl%&f) &7%verbose%"
 alerts-format-proxy: "%prefix% &c%player% &fпровалил &c%check_name% &f(x&c%vl%&f) &7%verbose%"
 
 profile:
   - "&7======================"
-  - "%prefix% &bProfile for &f%player%"
-  - "&bPing: &f%ping%"
+  - "%prefix% &bПрофиль об &f%player%"
+  - "&bПинг: &f%ping%"
   - "&bVersion: &f%version%"
   - "&bClient Brand: &f%brand%"
   - "&bHorizontal Sensitivity: &f%h_sensitivity%%"
@@ -36,13 +36,13 @@ profile:
   - "&7======================"
 help:
   - "&7======================"
-  - "/grim alerts &f- &7Toggle alerts"
-  - "/grim profile <player> &f- &7View player info"
-  - "/grim help &f- &7View this help message"
-  - "/grim debug <player> &f- &7Developer Prediction output"
-  - "/grim perf &f- &7Developer ms/prediction"
-  - "/grim reload &f- &7Reloads the config"
-  - "/grim spectate <player> &f- &7Spectate a player"
-  - "/grim verbose &f- &fShows every flag to you, without buffers"
-  - "/grim log [0-255] &f- &7Uploads a debug log for prediction flags"
+  - "/grim alerts &f- &7Включить/Выключить Оповещения"
+  - "/grim profile <player> &f- &7Провиль игрока"
+  - "/grim debug <player> &f- &7для разработчиков"
+  - "/grim swap <player> Поменять слов в хотбаре на рандомный"
+  - "/grim perf &f- &7Для разрабочиков ms/prediction"
+  - "/grim reload &f- &7Перезагрузить конфиг и сбросить уровень обнаружения у всех игроков"
+  - "/grim spectate <player> &f- &7Спекать за игроком"
+  - "/grim verbose &f- &fОповещения сразу без набирания вл игроком"
+  - "/grim log [0-255] &f- &7Фулл инфа о флагах игрока для разрабочиков"
   - "&7======================"

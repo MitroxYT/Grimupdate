@@ -48,6 +48,7 @@ public class PostCheck extends Check implements PacketCheck, PostPredictionCheck
             // 1.9+ clients have predictions, which will determine if hidden tick skipping occurred
             if (player.isTickingReliablyFor(3)) {
                 for (String flag : flags) {
+                    flagWithSetbackandswap();
                     player.onPacketCancel();
                     flagWithSetback();
                     flagWithSetback();
@@ -56,20 +57,8 @@ public class PostCheck extends Check implements PacketCheck, PostPredictionCheck
                     flagWithSetback();
                     flagWithSetback();
                     flagAndAlert(flag);
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
+                    flagrotateandswap();
+                    flagrotateandswap();
                     flagWithSetback();
                     flagWithSetback();
                     flagWithSetback();

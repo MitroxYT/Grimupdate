@@ -4,6 +4,9 @@ package ac.grim.grimac.manager;
 import ac.grim.grimac.api.AbstractCheck;
 import ac.grim.grimac.checks.impl.Inventory.InventoryA;
 import ac.grim.grimac.checks.impl.Inventory.InventoryB;
+import ac.grim.grimac.checks.impl.Inventory.InventoryC;
+import ac.grim.grimac.checks.impl.Inventory.InventoryD;
+import ac.grim.grimac.checks.impl.NoSwing.NoSwingA;
 import ac.grim.grimac.checks.impl.aim.AimDuplicateLook;
 import ac.grim.grimac.checks.impl.aim.AimModulo360;
 
@@ -11,6 +14,7 @@ import ac.grim.grimac.checks.impl.aim.processor.AimProcessor;
 import ac.grim.grimac.checks.impl.autoclicker.AutoClickerA;
 import ac.grim.grimac.checks.impl.badpackets.*;
 import ac.grim.grimac.checks.impl.baritone.Baritone;
+import ac.grim.grimac.checks.impl.baritone.BaritoneB;
 import ac.grim.grimac.checks.impl.combat.KillauraA;
 import ac.grim.grimac.checks.impl.combat.KillauraB;
 import ac.grim.grimac.checks.impl.combat.Reach;
@@ -18,10 +22,7 @@ import ac.grim.grimac.checks.impl.crash.*;
 import ac.grim.grimac.checks.impl.exploit.ExploitA;
 import ac.grim.grimac.checks.impl.exploit.ExploitB;
 import ac.grim.grimac.checks.impl.groundspoof.NoFallA;
-import ac.grim.grimac.checks.impl.misc.ClientBrand;
-import ac.grim.grimac.checks.impl.misc.FastBreak;
-import ac.grim.grimac.checks.impl.misc.GhostBlockMitigation;
-import ac.grim.grimac.checks.impl.misc.TransactionOrder;
+import ac.grim.grimac.checks.impl.misc.*;
 import ac.grim.grimac.checks.impl.movement.*;
 import ac.grim.grimac.checks.impl.post.PostCheck;
 import ac.grim.grimac.checks.impl.prediction.DebugHandler;
@@ -74,7 +75,12 @@ public class CheckManager {
                 .put(ClientBrand.class, new ClientBrand(player))
                 .put(NoFallA.class, new NoFallA(player))
                 .put(BadPacketsO.class, new BadPacketsO(player))
+                .put(InventoryC.class, new InventoryC(player))
                 .put(BadPacketsA.class, new BadPacketsA(player))
+                .put(NoSwingA.class, new NoSwingA(player))
+                .put(BadPacketsY.class, new BadPacketsY(player))
+                .put(InventoryD.class, new InventoryD(player))
+                .put(NoslowC.class, new NoslowC(player))
                 .put(BadPacketsB.class, new BadPacketsB(player))
                 .put(BadPacketsC.class, new BadPacketsC(player))
                 .put(BadPacketsD.class, new BadPacketsD(player))
@@ -94,13 +100,14 @@ public class CheckManager {
                 .put(InventoryB.class, new InventoryB(player))
                 .put(KillauraB.class, new KillauraB(player))
                 .put(BadPacketsQ.class, new BadPacketsQ(player))
-                .put(BadPacketsR.class, new BadPacketsR(player))
+                .put(FreeCam.class, new FreeCam(player))
                 .put(BadPacketsS.class, new BadPacketsS(player))
                 .put(BadPacketsT.class, new BadPacketsT(player))
                 .put(BadPacketsU.class, new BadPacketsU(player))
                 .put(BadPacketsV.class, new BadPacketsV(player))
                 .put(BadPacketsW.class, new BadPacketsW(player))
                 .put(FastBreak.class, new FastBreak(player))
+                .put(BaritoneB.class, new BaritoneB(player))
                 .put(KillauraA.class, new KillauraA(player))
                 .put(TransactionOrder.class, new TransactionOrder(player))
                 .put(NoSlowB.class, new NoSlowB(player))
@@ -142,6 +149,9 @@ public class CheckManager {
         blockPlaceCheck = new ImmutableClassToInstanceMap.Builder<BlockPlaceCheck>()
                 .put(InvalidPlace.class, new InvalidPlace(player))
                 .put(AirLiquidPlace.class, new AirLiquidPlace(player))
+                .put(ScaffoldB.class, new ScaffoldB(player))
+                .put(ScaffoldG.class, new ScaffoldG(player))
+                .put(ScaffoldE.class, new ScaffoldE(player))
                 .put(FarPlace.class, new FarPlace(player))
                 .put(FabricatedPlace.class, new FabricatedPlace(player))
                 .put(PositionPlace.class, new PositionPlace(player))

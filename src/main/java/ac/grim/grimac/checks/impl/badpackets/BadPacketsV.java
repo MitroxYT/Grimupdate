@@ -36,30 +36,11 @@ public class BadPacketsV extends Check implements PacketCheck {
                 Player p = (Player) event.getPlayer();
                 event.isCancelled();
                 flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-<<<<<<< Updated upstream
-=======
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
->>>>>>> Stashed changes
+                flagrotateandswap();
+                flagrotateandswap();
+                flagrotateandswap();
                 event.setCancelled(true);
                 player.onPacketCancel();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
             }
         }
     }

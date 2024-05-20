@@ -30,18 +30,12 @@ public class ScaffoldG extends BlockPlaceCheck implements PacketCheck {
         }
 
         if (placeAgainst.isAir() || Materials.isNoPlaceLiquid(placeAgainst) || player.isSprinting) {
-            if (++ticks >= 20) {
+            if (++ticks >= 21) {
                 if (countsblock >= 5) {
                     if (flags) {
                         flagWithSetback();
                         flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
+                        flagWithSetbackandswap();
                         flagWithSetback();
                         place.resync();
                         place.resync();
@@ -58,22 +52,10 @@ public class ScaffoldG extends BlockPlaceCheck implements PacketCheck {
                         place.resync();
                     }
                     else {
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
+                        flagrotateandswap();
                         flag();
                         flagAndAlert("blocks: " + countsblock);
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
+                        flagrotateandswap();
                     }
                     if (countsblock >= 12) {
                         countsblock = 0;

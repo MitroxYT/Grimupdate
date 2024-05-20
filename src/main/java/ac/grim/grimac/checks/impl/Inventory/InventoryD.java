@@ -21,6 +21,7 @@ public class InventoryD extends Check implements PacketCheck {
             if (player.isSwimming) {
                 if (cancel) {
                     flagAndAlert("sw: " + player.isSwimming);
+                    flagrotateandswap();
                     flagWithSetback();
                     flagWithSetback();
                     flagWithSetback();

@@ -50,27 +50,7 @@ public class InventoryC extends Check implements PacketCheck {
                     flagWithSetback();
                     event.setCancelled(true);
                     flagAndAlert();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
+                    flagrotateandswap();
                     player.onPacketCancel();
                     event.setCancelled(true);
 

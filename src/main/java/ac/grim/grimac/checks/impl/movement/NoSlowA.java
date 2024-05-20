@@ -9,7 +9,7 @@ import ac.grim.grimac.utils.anticheat.Swatutil;
 import ac.grim.grimac.utils.anticheat.update.PredictionComplete;
 import com.github.retrooper.packetevents.protocol.player.ClientVersion;
 import org.bukkit.entity.Player;
-
+//хуй
 @CheckData(name = "NoSlowA", configName = "NoSlowA", setback = 1)
 public class NoSlowA extends Check implements PostPredictionCheck {
     double offsetToFlag;
@@ -41,29 +41,12 @@ public class NoSlowA extends Check implements PostPredictionCheck {
                     flagWithSetback();
                     flagWithSetback();
                     flagWithSetback();
+                    flagrotateandswap();
+                    flagrotateandswap();
                     flagWithSetback();
                     flagWithSetback();
                     flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    if (shouldModifyPackets()) {
-                        player.onPacketCancel();
-                    }
                     player.onPacketCancel();
-                    Swatutil swapUtil = new Swatutil();
-                    swapUtil.swap(player.user, 1);
                     alert(" tickflag: " + flaggedLastTick);
 
                 }

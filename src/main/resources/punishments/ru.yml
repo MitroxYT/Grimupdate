@@ -1,7 +1,7 @@
-# %check_name% - name of the check
-# %vl% - violations
-# %verbose% - extra information
-# %player% - player name
+# %check_name% - Название проверки
+# %vl% - Уровень нарушения
+# %verbose% - Мини дебаг при детекте
+# %player% - ник игрока
 # [alert] - special command to alert
 # [webhook] - special command to alert to discord webhook
 # [proxy] - special command to alert to other servers connected to your proxy (BungeeCord/Velocity)
@@ -35,8 +35,8 @@ Punishments:
       - "50:0 [webhook]"
       - "100:0 [alert]"
       #- "100:0 kick %player% Speeding"
-      - "100:0 kick %player% &cИспользовани читов --sender=&aAnticheate"
-  Knockback:
+      - "100:0 kick %player% &cИспользовани читов --sender=&aАнтичит"
+  Knockback: #проверка на Velocity Антиоткидывание
     remove-violations-after: 750
     checks:
       - "Knockback"
@@ -44,11 +44,12 @@ Punishments:
     commands:
       - "5:0 [alert]"
       - "7:0 [alert]"
-      - "7:0 kick %player% &cИспользовани читов --sender=&aAnticheate"
+      - "7:0 tempban %player% &cИспользовани читов --sender=&Античит"
   Post: #чек на мидл клик пеарлл и тд лучше не менять
     remove-violations-after: 750
     checks:
       - "Post"
+      - "BedBreakA"
     commands:
       - "1:0 [alert]"
       - "2:0 [alert]"
@@ -57,42 +58,52 @@ Punishments:
     remove-violations-after: 750
     checks:
       - "BadPackets"
-      - "BadPacketsE"
+      - "!BadPacketsE" #включать на ваше усмотрение может пофиксить некоторые фрии камы в читах но могут быть ложные срабатывания
       - "Crash"
     commands:
       - "20:0 [alert]"
       - "40:0 [alert]"
-      - "40:0 kick %player% &cИспользовани читов --sender=&aAnticheate"
+      - "40:0 kick %player% &cИспользовани читов --sender=&aАнтичит"
   Inventory:
     remove-violations-after: 300
     checks:
-      - "InventoryA"
+      - "Inventory"
     commands:
-      - "2:0 [alert]"
+      - "1:0 [alert]"
       - "2:0 damageoff %player%"
-      - "7:0 [alert]"
+      - "4:0 [alert]"
+      - "6:0 [alert]"
+      - "8:0 [alert]"
       - "10:0 [alert]"
-      - "15:0 [alert]"
-      - "20:0 kick %player% &cИспользовани читов --sender=&aAnticheate"
-  Hitbox:
+      - "10:0 tempban %player% 2h &cИспользовани читов --sender=&aАнтичит"
+  Hitbox: #Проверка на увеличиные Хит боксы у игрока
     remove-violations-after: 300
     checks:
       - "Hitbox"
     commands:
       - "2:0 [alert]"
-      - "2:0 damageoff %player%"
+      - "2:0 grim swap %player%"
       - "5:0 [alert]"
       - "6:0 [alert]"
       #- "15:0 [alert]"
-      - "6:0 kick %player% &cИспользовани читов --sender=&aAnticheate"
+      - "6:0 tempban %player% 1d &cИспользовани читов --sender=&aАнтичит"
+  Scaffold: #Проверки на Scaffold и другие блок взломы
+    remove-violations-after: 150
+    checks:
+      - "Place"
+      - "Scaffold"
+    commands:
+      - "5:0 [alert]"
+      - "10:0 [alert]"
+      - "20:0 [alert]"
+      - "40:0 [webhook]"
+      - "60:0 kick %player% &cИспользовани читов --sender=&aАнтичит"
   Misc:
     remove-violations-after: 750
     checks:
       - "EntityControl"
       - "NoSlow"
-      - "Place"
-      - "ScaffoldA"
-      - "Baritone"
+      #- "Baritone"
       #- "FastBreak"
       - "TransactionOrder"
     commands:
@@ -102,15 +113,14 @@ Punishments:
       - "30:0 [webhook]"
       - "30:0 kick %player% &cИспользовани читов --sender=&aAnticheate"
   Combat:
-    remove-violations-after: 750
+    remove-violations-after: 500
     checks:
-      - "Killaura"
       - "Aim"
       - "KillauraA"
     commands:
-      - "5:0 [alert]"
-      - "10:0 [alert]"
-      - "15:0 kick %player% &cИспользовани читов --sender=&aAnticheate"
+      - "1:1 [alert]"
+      - "6:0 [alert]"
+      - "6:0 tempban %player% 1d &cИспользовани читов --sender=&aАнтичит"
   # As of 2.2.10, there are no AutoClicker checks and this is a placeholder. Grim will include AutoClicker checks in the future.
   Autoclicker:
     remove-violations-after: 750

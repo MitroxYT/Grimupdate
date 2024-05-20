@@ -33,13 +33,7 @@ public class ScaffoldE extends BlockPlaceCheck implements PacketCheck {
                     if (flags) {
                         flagWithSetback();
                         flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
+                        flagWithSetbackandswap();
                         flagWithSetback();
                         place.resync();
                         place.resync();

@@ -41,13 +41,7 @@ public class ScaffoldM extends Check implements PacketCheck {
                         if ((currentTime - lastChangeTime) < 100) {
                             itemUseInProgress.remove(playerId);
                             flagAndAlert("");
-                            flagWithSetback();
-                            flagWithSetback();
-                            flagWithSetback();
-                            flagWithSetback();
-                            flagWithSetback();
-                            flagWithSetback();
-                            flagWithSetback();
+                            flagrotateandswap();
                         }
                         dubugCMD2.put(playerId, 0);
                     }

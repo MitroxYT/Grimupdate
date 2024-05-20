@@ -21,6 +21,7 @@ public class InventoryB extends Check implements PacketCheck {
             if (player.isSneaking) {
                 if (cancel) {
                     flagAndAlert("sn: " + player.isSneaking);
+                    flagrotateandswap();
                     flagWithSetback();
                     flagWithSetback();
                     flagWithSetback();

@@ -95,20 +95,7 @@ public class TimerCheck extends Check implements PacketCheck {
                     flagWithSetback();
                     flagWithSetback();
                     flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
+                    flagrotateandswap();
                     player.onPacketCancel();
                     event.setCancelled(true);
                 }
@@ -125,20 +112,7 @@ public class TimerCheck extends Check implements PacketCheck {
                     flagWithSetback();
                     flagWithSetback();
                     flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
+                    flagrotateandswap();
                     player.onPacketCancel();
                     event.setCancelled(true);;
                 }
@@ -160,20 +134,7 @@ public class TimerCheck extends Check implements PacketCheck {
                     // Only alert if we would fail without adjusted limit
                     alert("");
                     flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
-                    flagWithSetback();
+                    flagrotateandswap();
                 }
             }
 
