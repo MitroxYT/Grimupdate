@@ -10,7 +10,7 @@ import com.github.retrooper.packetevents.protocol.world.states.type.StateTypes;
 
 import java.util.Collections;
 
-@CheckData(name = "PositionPlace")
+@CheckData(name = "ScaffoldY")
 public class PositionPlace extends BlockPlaceCheck {
 
     public PositionPlace(GrimPlayer player) {

@@ -66,6 +66,7 @@ Scaffold:
   B:
     mindistance: 80
     Cancel-build: false
+    flagticks: 40
 
 FabricatedPlace:
   cancelvl: 5

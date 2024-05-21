@@ -7,7 +7,7 @@ import com.github.retrooper.packetevents.event.PacketReceiveEvent;
 import com.github.retrooper.packetevents.protocol.packettype.PacketType;
 import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientInteractEntity;
 
-@CheckData(name = "AutoClickerA", experimental = true)
+@CheckData(name = "KillauraE", experimental = true)
 public class AutoClickerA extends Check implements PacketCheck {
     private int ticks, cps, flagclick;
 
@@ -20,7 +20,7 @@ public class AutoClickerA extends Check implements PacketCheck {
         if (event.getPacketType() == PacketType.Play.Client.PLAYER_POSITION_AND_ROTATION) {
             if (++ticks >= 20) {
                 if (cps > flagclick && !(event.getPacketType() == PacketType.Play.Client.PLAYER_DIGGING) && !(event.getPacketType() == PacketType.Play.Client.PLAYER_BLOCK_PLACEMENT)) {
-                    flagAndAlert("cps=" + cps);
+                    flagAndAlert("Avarage=" + cps);
                 }
                 ticks = cps = 0;
             }

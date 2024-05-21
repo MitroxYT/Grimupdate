@@ -1,58 +1,61 @@
 package ac.grim.grimac.checks.impl.scaffolding;
 
-import ac.grim.grimac.checks.Check;
+import ac.grim.grimac.checks.CheckData;
+import ac.grim.grimac.checks.type.BlockPlaceCheck;
 import ac.grim.grimac.checks.type.PacketCheck;
 import ac.grim.grimac.player.GrimPlayer;
-import com.github.retrooper.packetevents.event.PacketReceiveEvent;
-import com.github.retrooper.packetevents.protocol.packettype.PacketType;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.plugin.Plugin;
-
-import java.util.*;
-
-public class ScaffoldM extends Check implements PacketCheck {
-    private final Map<UUID, Long> lastSlotChangeTimeStamps = new HashMap<>();
-    private final Set<UUID> itemUseInProgress = new HashSet<>();
-    public static HashMap<UUID, Integer> dubugCMD2 = new HashMap<>();
-    private Plugin ScaffoldM;
-
+import ac.grim.grimac.utils.anticheat.update.BlockPlace;
+import ac.grim.grimac.utils.nmsutil.Materials;
+import com.github.retrooper.packetevents.protocol.player.GameMode;
+import com.github.retrooper.packetevents.protocol.world.states.type.StateType;
+import com.github.retrooper.packetevents.util.Vector3i;
+@CheckData(name = "ScaffoldM")
+public class ScaffoldM extends BlockPlaceCheck implements PacketCheck {
+    private int ticks, bypassdist, tickflag , resetticks;
+    private boolean flags;
     public ScaffoldM(GrimPlayer player) {
         super(player);
     }
     @Override
-    public void onPacketReceive(PacketReceiveEvent event) {
-        UUID playerId = player.getUniqueId();
-        long currentTime = System.currentTimeMillis();
-
-        if (event.getPacketType() == PacketType.Play.Client.USE_ITEM) {
-            //dubugCMD2.get(playerId) == 0;
-            dubugCMD2.put(playerId, 1);
-            itemUseInProgress.add(playerId);
-            //Bukkit.getScheduler().runTaskLater(ScaffoldM, () -> itemUseInProgress.remove(playerId), 5);
-            //checkForSuspiciousActivity(player, currentTime);
-        }
-        if (event.getPacketType() == PacketType.Play.Client.HELD_ITEM_CHANGE) {
-            if (dubugCMD2.getOrDefault(playerId, 0) == 1) {
-                if (itemUseInProgress.contains(playerId)) {
-                    if (lastSlotChangeTimeStamps.containsKey(playerId)) {
-                        long lastChangeTime = lastSlotChangeTimeStamps.get(playerId);
-
-                        if ((currentTime - lastChangeTime) < 100) {
-                            itemUseInProgress.remove(playerId);
-                            flagAndAlert("");
-                            flagrotateandswap();
-                        }
-                        dubugCMD2.put(playerId, 0);
-                    }
+    public void onBlockPlace(final BlockPlace place) {
+        if (player.fallDistance >= 3) return;
+        if (player.gamemode == GameMode.CREATIVE) return;
+        Vector3i blockPos = place.getPlacedAgainstBlockLocation();
+        StateType placeAgainst = player.compensatedWorld.getStateTypeAt(blockPos.getX(), blockPos.getY(), blockPos.getZ());
+        if (blockPos.getY() <= bypassdist) return;
+        if (placeAgainst.isAir() || Materials.isNoPlaceLiquid(placeAgainst) || player.onGround || !player.isSneaking) {
+            if (++ticks >= 15) {
+                if(flags) {
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetbackandswap();
+                    flagWithSetback();
+                    place.resync();
+                    place.resync();
+                    place.resync();
+                    place.resync();
+                    place.resync();
+                    place.resync();
+                    flagAndAlert();
+                }
+                else {
+                    flagrotateandswap();
+                    flagAndAlert();
+                    flagrotateandswap();
+                }
+                if (ticks >= 29) {
+                    ticks = 0;
                 }
             }
-            if (dubugCMD2.get(playerId) == 1) {
-                dubugCMD2.put(playerId, 0);
-            }
-            lastSlotChangeTimeStamps.put(playerId, currentTime);
-            dubugCMD2.put(playerId, 0);
         }
-
+    }
+    @Override
+    public void reload() {
+        super.reload();
+        //this.ticks = getConfig().getInt("Scaffold.B.flagticks");
+        //this.resetticks = getConfig().getInt("Scaffold.B.flagresetticks");
+        this.flags = getConfig().getBoolean("Scaffold.B.Cancel-build");
+        this.bypassdist = getConfig().getInt("Scaffold.B.mindistance");
+        ticks = 0;
     }
 }

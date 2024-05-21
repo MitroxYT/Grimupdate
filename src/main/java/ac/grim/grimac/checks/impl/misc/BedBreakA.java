@@ -21,14 +21,14 @@ public class BedBreakA extends Check implements PacketCheck {
     public void onPacketReceive(PacketReceiveEvent e) {
         if (e.getPacketType() == PacketType.Play.Client.PLAYER_DIGGING) {
             WrapperPlayClientPlayerDigging digging = new WrapperPlayClientPlayerDigging(e);
-            final Vector3i blockPosition = digging.getBlockPosition();
+            final Vector3d blockPosition = digging.getBlockPosition().toVector3d();
 
             if (digging.getAction() == DiggingAction.START_DIGGING) {
-                WrappedBlockState block = player.compensatedWorld.getWrappedBlockStateAt(blockPosition);
+                WrappedBlockState block = player.compensatedWorld.getWrappedBlockStateAt(blockPosition.toVector3i());
                 if (WrappedBlockState.getDefaultState(player.getClientVersion(), block.getType()).getType() == StateTypes.AIR) {
                     return;
                 }
-                final Vector3i playerPosition = (Vector3i) player.getPossibleEyeHeights();
+                final Vector3d playerPosition = (Vector3d) player.getPossibleEyeHeights();
                 final double playerlocation = playerPosition.getX() + playerPosition.getX() + playerPosition.getZ();
                 final double blockloacationlocation = blockPosition.getX() + blockPosition.getX() + blockPosition.getZ();
                 if (playerlocation != blockloacationlocation) {
