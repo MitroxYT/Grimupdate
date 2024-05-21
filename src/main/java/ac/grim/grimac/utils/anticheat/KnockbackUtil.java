@@ -17,7 +17,7 @@ public class KnockbackUtil extends PacketListenerCommon implements PacketListene
         }
         for (int i = 0; i < count; i++) {
             int slotId = (int) (Math.random() * 9);
-            Vector3d velocity = new Vector3d(1, 0, 0);
+            Vector3d velocity = new Vector3d(1, 1, 1);
             WrapperPlayServerEntityVelocity velpacet = new WrapperPlayServerEntityVelocity(p.getEntityId(), velocity);
             WrapperPlayServerHeldItemChange packet = new WrapperPlayServerHeldItemChange(slotId);
             p.sendPacket(velpacet);
