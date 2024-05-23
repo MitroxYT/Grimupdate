@@ -268,7 +268,7 @@ public class KillauraB extends Check implements PacketCheck {
         if ((!blacklisted.contains(reachEntity.type) && reachEntity.isLivingEntity()) || reachEntity.type == EntityTypes.END_CRYSTAL) {
             if (minDistance == Double.MIN_VALUE && foundHitData != null) {
                 cancelBuffer = 1;
-                return "Interact on block on damage event Block=" + foundHitData.getState().getType().getName();
+                return "AttakThowWall=" + foundHitData.getState().getType().getName();
             } else {
                 cancelBuffer = Math.max(0, cancelBuffer - 0.25);
             }

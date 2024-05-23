@@ -266,10 +266,7 @@ public class Reach extends Check implements PacketCheck {
 
         // if the entity is not exempt and the entity is alive
         if ((!blacklisted.contains(reachEntity.type) && reachEntity.isLivingEntity()) || reachEntity.type == EntityTypes.END_CRYSTAL) {
-            if (minDistance == Double.MIN_VALUE && foundHitData != null) {
-                cancelBuffer = 1;
-                return "Interact on block on damage event Block=" + foundHitData.getState().getType().getName();
-            } else if (minDistance == Double.MAX_VALUE) {
+            if (minDistance == Double.MAX_VALUE) {
                 cancelBuffer = 1;
                 return "Missed hitbox";
             } else if (minDistance > 3) {

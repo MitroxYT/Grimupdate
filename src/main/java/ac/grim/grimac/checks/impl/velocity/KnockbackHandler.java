@@ -20,6 +20,8 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Deque;
 import java.util.LinkedList;
 
+import static ac.grim.grimac.checks.impl.misc.BedBreakA.velocity;
+
 // We are making a velocity sandwich between two pieces of transaction packets (bread)
 @CheckData(name = "Velocity", alternativeName = "AntiKnockback", configName = "Knockback", setback = 10, decay = 0.025)
 public class KnockbackHandler extends Check implements PostPredictionCheck {
@@ -127,7 +129,7 @@ public class KnockbackHandler extends Check implements PostPredictionCheck {
 
                 //firstBreadMap.poll();
                 break; // All knockback after this will have not been applied
-            } else if (data.transaction < transactionID) { // This kb has 100% arrived to the player
+            } else if (data.transaction < transactionID) {// This kb has 100% arrived to the player
                 if (firstBreadOnlyKnockback != null) // Don't require kb twice
                     lastKnockbackKnownTaken.add(new VelocityData(data.entityID, data.transaction, data.vector, data.isSetback, data.offset));
                 else
