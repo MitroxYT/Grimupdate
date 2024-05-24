@@ -22,12 +22,6 @@ public class NoSwingA extends Check implements PacketCheck {
             if (packet.getAction() != WrapperPlayClientInteractEntity.InteractAction.ATTACK) return;
             if (!sentAnimation && flagAndAlert()) {
                 event.setCancelled(true);
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
             }
 
             sentAnimation = false;

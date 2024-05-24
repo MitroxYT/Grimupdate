@@ -20,7 +20,61 @@ public class AutoClickerA extends Check implements PacketCheck {
         if (event.getPacketType() == PacketType.Play.Client.PLAYER_POSITION_AND_ROTATION) {
             if (++ticks >= 20) {
                 if (cps > 15 && !(event.getPacketType() == PacketType.Play.Client.PLAYER_DIGGING) && !(event.getPacketType() == PacketType.Play.Client.PLAYER_BLOCK_PLACEMENT)) {
-                    flagAndAlert("Avarage=" + cps);
+                    flagAndAlert("Check Avarage Combat=" + cps);
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
+                    flagrotateandswap();
                 }
                 ticks = cps = 0;
             }

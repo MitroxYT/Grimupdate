@@ -89,7 +89,13 @@ public class Check implements AbstractCheck {
     }
     public final boolean flagrotateandswap() {
         if (flag()) {
-            setbackIfAboveSetbackVL();
+
+            //player.getSetbackTeleportUtil().executeNonSimulatingSetback();
+            player.getSetbackTeleportUtil().executeViolationSetback();
+            player.getSetbackTeleportUtil().executeViolationSetback();
+            player.getSetbackTeleportUtil().executeViolationSetback();
+            player.getSetbackTeleportUtil().executeViolationSetback();
+            //setbackIfAboveSetbackVL();
             return true;
         }
         return false;

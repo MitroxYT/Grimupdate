@@ -35,10 +35,8 @@ public class RotationPlace extends BlockPlaceCheck {
         if (flagBuffer > 0 && !didRayTraceHit(place)) {
             ignorePost = true;
             // If the player hit and has flagged this check recently
-            if (flagAndAlert("pre-flying") && shouldModifyPackets() && shouldCancel() && flagWithSetback() && flagWithSetback() && flagWithSetback()) {
-                flagWithSetbackandswap();
-                place.resync();  // Deny the block placement.
-            }
+            flagAndAlert();
+                // Deny the block placement
         }
     }
 
@@ -58,15 +56,15 @@ public class RotationPlace extends BlockPlaceCheck {
         // This can false with rapidly moving yaw in 1.8+ clients
         if (!hit) {
             flagBuffer = 1;
-            flagWithSetback();
+            /*flagWithSetback();
             flagWithSetback();
             flagWithSetback();
             flagWithSetback();
             flagWithSetback();
             flagWithSetback();
             flagWithSetbackandswap();
-            flagrotateandswap();
-            flagAndAlert("post-flying");
+            flagrotateandswap();*/
+            flagAndAlert();
         } else {
             flagBuffer = Math.max(0, flagBuffer - 0.1);
         }

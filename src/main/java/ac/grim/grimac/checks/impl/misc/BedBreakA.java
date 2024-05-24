@@ -24,10 +24,12 @@ public class BedBreakA extends Check implements PacketCheck {// Define the maxim
         if (velocity) {
         if (e.getPacketType() == PacketType.Play.Client.PLAYER_DIGGING) {
             WrapperPlayClientPlayerDigging digging = new WrapperPlayClientPlayerDigging(e);
-                        System.out.println(player.getName() + " " + digging.getAction());
-                        flagAndAlert();
-                        avarage = 0;
-                        velocity = false;
+            if (digging.getAction()== DiggingAction.START_DIGGING) {
+                //System.out.println(player.getName() + " " + digging.getAction());
+                flagAndAlert();
+                avarage = 0;
+                velocity = false;
+            }
         }
         }
         if (e.getPacketType() == PacketType.Play.Client.INTERACT_ENTITY) {
