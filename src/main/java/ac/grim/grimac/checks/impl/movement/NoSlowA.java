@@ -5,11 +5,14 @@ import ac.grim.grimac.checks.CheckData;
 import ac.grim.grimac.checks.impl.combat.Reach;
 import ac.grim.grimac.checks.type.PostPredictionCheck;
 import ac.grim.grimac.player.GrimPlayer;
+import ac.grim.grimac.utils.anticheat.NoDamageUtil;
 import ac.grim.grimac.utils.anticheat.Swatutil;
 import ac.grim.grimac.utils.anticheat.update.PredictionComplete;
 import com.github.retrooper.packetevents.protocol.player.ClientVersion;
 import org.bukkit.entity.Player;
-//хуй
+
+import java.util.UUID;
+
 @CheckData(name = "NoSlowA", configName = "NoSlowA", setback = 1)
 public class NoSlowA extends Check implements PostPredictionCheck {
     double offsetToFlag;
@@ -41,7 +44,8 @@ public class NoSlowA extends Check implements PostPredictionCheck {
                     flagWithSetback();
                     player.onPacketCancel();
                     alert(" tickflag: " + flaggedLastTick);
-
+                    UUID uuid = player.getUniqueId();
+                    NoDamageUtil.noslowusers.put(uuid,1);
                 }
                 flaggedLastTick = true;
             } else {

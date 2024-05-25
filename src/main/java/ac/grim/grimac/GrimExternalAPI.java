@@ -5,6 +5,7 @@ import ac.grim.grimac.api.GrimAbstractAPI;
 import ac.grim.grimac.api.GrimUser;
 import ac.grim.grimac.manager.init.Initable;
 import ac.grim.grimac.player.GrimPlayer;
+import ac.grim.grimac.utils.HEX;
 import com.github.retrooper.packetevents.netty.channel.ChannelHelper;
 import io.github.retrooper.packetevents.util.SpigotReflectionUtil;
 import lombok.Getter;
@@ -111,5 +112,6 @@ public class GrimExternalAPI implements GrimAbstractAPI, Initable {
         variableReplacements.put("%tps%", user -> String.format("%.2f", SpigotReflectionUtil.getTPS()));
         variableReplacements.put("%version%", GrimUser::getVersionName);
         variableReplacements.put("%prefix%", user -> ChatColor.translateAlternateColorCodes('&', GrimAPI.INSTANCE.getConfigManager().getConfig().getStringElse("prefix", "&bGrim &8»")));
+        variableReplacements.put("%hexprefix%", user -> HEX.translateHexColorCodes(GrimAPI.INSTANCE.getConfigManager().getConfig().getStringElse("hexprefix", "#FF5733WAC &8»")));
     }
 }

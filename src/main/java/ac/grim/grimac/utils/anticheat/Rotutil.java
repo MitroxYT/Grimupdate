@@ -15,8 +15,8 @@ public class Rotutil extends PacketListenerCommon implements PacketListener {
         }
         User packetuser = p;
         for (int i = 0; i < count; i++) {
-            float slotId = (float) (Math.random() * 90);
-            float yaw = (float) (Math.random() * 180);
+            float slotId = (float) (Math.random() * 180);
+            float yaw = (float) (Math.random() * 90);
             WrapperPlayServerEntityRotation rotpacket = new WrapperPlayServerEntityRotation(p.getEntityId(),slotId,yaw,true);
             packetuser.sendPacket(rotpacket);
         }
