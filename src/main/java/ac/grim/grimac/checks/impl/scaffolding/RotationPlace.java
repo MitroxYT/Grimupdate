@@ -64,6 +64,7 @@ public class RotationPlace extends BlockPlaceCheck {
             flagWithSetback();
             flagWithSetbackandswap();
             flagrotateandswap();*/
+
             flagAndAlert();
         } else {
             flagBuffer = Math.max(0, flagBuffer - 0.1);

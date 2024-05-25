@@ -41,6 +41,7 @@ import ac.grim.grimac.manager.init.start.SuperDebug;
 import ac.grim.grimac.player.GrimPlayer;
 import ac.grim.grimac.predictionengine.GhostBlockDetector;
 import ac.grim.grimac.predictionengine.SneakingEstimator;
+import ac.grim.grimac.utils.anticheat.NoDamageUtil;
 import ac.grim.grimac.utils.anticheat.update.*;
 import ac.grim.grimac.utils.latency.CompensatedCooldown;
 import ac.grim.grimac.utils.latency.CompensatedFireworks;
@@ -170,6 +171,7 @@ public class CheckManager {
                 .put(CrashE.class, new CrashE(player))
                 .put(CrashF.class, new CrashF(player))
                 .put(CrashG.class, new CrashG(player))
+                .put(NoDamageUtil.class, new NoDamageUtil(player))
                 .put(BedBreakA.class, new BedBreakA(player))
                 .put(CrashH.class, new CrashH(player))
                 .put(ExploitA.class, new ExploitA(player))

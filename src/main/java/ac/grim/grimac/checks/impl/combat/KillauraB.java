@@ -48,14 +48,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
-// You may not copy the check unless you are licensed under GPL
+/*
+Author: NurcaDev9
+Date: 12.05.24
+ */
 @CheckData(name = "KillauraB", configName = "KillauraB", setback = 10)
 public class KillauraB extends Check implements PacketCheck {
-    // Only one flag per reach attack, per entity, per tick.
-    // We store position because lastX isn't reliable on teleports.
     private final Map<Integer, Vector3d> playerAttackQueue = new HashMap<>();
-    // Used to prevent falses in the wall hit check
     private final Set<Vector3i> blocksChangedThisTick = new HashSet<>();
 
     private static final List<EntityType> blacklisted = Arrays.asList(
@@ -65,7 +64,7 @@ public class KillauraB extends Check implements PacketCheck {
 
     private boolean cancelImpossibleHits;
     private double threshold;
-    private double cancelBuffer; // For the next 4 hits after using reach, we aggressively cancel reach
+    private double cancelBuffer;
 
     public KillauraB(GrimPlayer player) {
         super(player);
@@ -164,166 +163,8 @@ public class KillauraB extends Check implements PacketCheck {
                 if (result != null) {
                     if (reachEntity.type == EntityTypes.PLAYER) {
                         flagAndAlert(result);
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
                     } else {
                         flagAndAlert(result + " type=" + reachEntity.type.getName().getKey());
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagrotateandswap();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
-                        flagWithSetback();
                     }
                 }
             }

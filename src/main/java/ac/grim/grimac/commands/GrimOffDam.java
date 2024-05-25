@@ -6,6 +6,7 @@ import ac.grim.grimac.checks.impl.misc.ClientBrand;
 import ac.grim.grimac.player.GrimPlayer;
 import ac.grim.grimac.utils.anticheat.MessageUtil;
 import ac.grim.grimac.utils.anticheat.MultiLibUtil;
+import ac.grim.grimac.utils.anticheat.NoDamageUtil;
 import ac.grim.grimac.utils.anticheat.Rotutil;
 
 import ac.grim.grimac.utils.math.GrimMath;
@@ -23,8 +24,8 @@ import org.bukkit.entity.Player;
 import java.util.UUID;
 
 @CommandAlias("grim|grimac")
-public class GrimRoteblo extends BaseCommand {
-    @Subcommand("rot")
+public class GrimOffDam extends BaseCommand {
+    @Subcommand("dmoff")
     @CommandPermission("grim.rot")
     @CommandCompletion("@players")
     public void onConsoleDebug(CommandSender sender, OnlinePlayer target) {
@@ -46,13 +47,11 @@ public class GrimRoteblo extends BaseCommand {
         }
 
         else {
-            UUID uuid = grimPlayer.getUniqueId();
-            String message = "&cуспешно изменил ротацию игрока " + target.getPlayer().getName();
+            UUID uuid = target.getPlayer().getUniqueId();
+            String message = "&cИгроку был отключена атака других сущестностей на 7 ударов " + target.getPlayer().getName();
             sender.sendMessage(MessageUtil.format(message));
-            Rotutil rotut = new Rotutil();
-            rotut.rotate(grimPlayer.user, 1);
-            rotut.rotate(grimPlayer.user, 1);
-            rotut.rotate(grimPlayer.user, 1);
+            NoDamageUtil.killaurausers.put(uuid,1);
+            System.out.println(uuid);
         }
     }
 }

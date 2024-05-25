@@ -11,7 +11,10 @@ import com.github.retrooper.packetevents.protocol.packettype.PacketType;
 import java.util.Objects;
 
 import static ac.grim.grimac.utils.anticheat.Version.IS_bypassss;
-
+/*
+Author: NurcaDev9
+Date: 12.05.24
+ */
 @CheckData(name = "KillauraA")
 public class KillauraA extends Check implements PacketCheck {
     public KillauraA(GrimPlayer player) {
@@ -25,85 +28,6 @@ public class KillauraA extends Check implements PacketCheck {
                 flagWithSetback();
                 flagrotateandswap();
                 flagAndAlert("use: " + player.bukkitPlayer.isHandRaised() + " Ver: " +  player.getClientVersion());
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagrotateandswap();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
-                flagWithSetback();
                 event.setCancelled(true);
                 player.onPacketCancel();
                 //Reach.cancelBuffer= 8;

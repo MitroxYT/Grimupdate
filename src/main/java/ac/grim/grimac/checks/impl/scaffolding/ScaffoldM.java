@@ -9,6 +9,10 @@ import ac.grim.grimac.utils.nmsutil.Materials;
 import com.github.retrooper.packetevents.protocol.player.GameMode;
 import com.github.retrooper.packetevents.protocol.world.states.type.StateType;
 import com.github.retrooper.packetevents.util.Vector3i;
+/*
+Author: NurcaDev9
+Date: 12.05.24
+ */
 @CheckData(name = "ScaffoldM")
 public class ScaffoldM extends BlockPlaceCheck implements PacketCheck {
     private int ticks, bypassdist, tickflag , resetticks;
