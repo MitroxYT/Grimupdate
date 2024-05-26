@@ -20,6 +20,7 @@ public class InventoryB extends Check implements PacketCheck {
             WrapperPlayClientClickWindow wrapper = new WrapperPlayClientClickWindow(event);
             if (player.isSneaking) {
                 if (cancel) {
+                    close();
                     flagAndAlert("sn: " + player.isSneaking);
                     flagrotateandswap();
                     flagWithSetback();

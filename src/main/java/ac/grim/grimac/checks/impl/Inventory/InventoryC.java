@@ -18,7 +18,6 @@ import java.util.UUID;
 
 @CheckData(name = "InventoryC")
 public class InventoryC extends Check implements PacketCheck {
-    private org.bukkit.event.player.PlayerMoveEvent p;
 
     public InventoryC(GrimPlayer player) {
         super(player);
@@ -47,12 +46,10 @@ public class InventoryC extends Check implements PacketCheck {
                 int clickCount = clickCounts.getOrDefault(playerId.toString(), 0) + 1;
                 clickCounts.put(playerId.toString(), clickCount);
                 if (clickCount > 90 && shouldModifyPackets()) {
+                    close();
                     flagWithSetback();
-                    event.setCancelled(true);
+                   // event.setCancelled(true);
                     flagAndAlert();
-                    flagrotateandswap();
-                    player.onPacketCancel();
-                    event.setCancelled(true);
 
                 }
             } else {

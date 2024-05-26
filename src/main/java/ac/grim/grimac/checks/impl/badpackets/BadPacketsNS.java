@@ -17,15 +17,14 @@ public class BadPacketsNS extends Check implements PacketCheck {
         super(player);
     }
     private int buffer;
-    private HashMap<UUID, Integer> itemuse = new HashMap<>();
     public void onPacketReceive(PacketReceiveEvent e) {
         UUID playerId = e.getUser().getUUID();
         if(e.getPacketType() == PacketType.Play.Client.HELD_ITEM_CHANGE) {
             if(player.packetStateData.slowedByUsingItem) {
                 if (++buffer >= 5) {
-                    //e.setCancelled(true);
                     NoDamageUtil.noslowusers.put(playerId, 1);
                     flagAndAlert();
+                    flagWithSetback();
                 }
                 if(++buffer== 10) {
                     buffer=0;

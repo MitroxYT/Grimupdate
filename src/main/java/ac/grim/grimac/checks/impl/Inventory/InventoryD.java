@@ -40,6 +40,7 @@ public class InventoryD extends Check implements PacketCheck {
                     flagWithSetback();
                     event.setCancelled(true);
                     player.onPacketCancel();
+                    close();
                 }
                 else {
                     flagAndAlert("");

@@ -100,6 +100,7 @@ public class GrimPlayer implements GrimUser {
     public Vector stuckSpeedMultiplier = new Vector(1, 1, 1);
     public UncertaintyHandler uncertaintyHandler;
     public double gravity;
+    public boolean hasInventoryOpen;
     public float friction;
     public double speed;
     public Vector3d filterMojangStupidityOnMojangStupidity = new Vector3d();

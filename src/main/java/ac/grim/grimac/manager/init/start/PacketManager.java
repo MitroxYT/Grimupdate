@@ -5,11 +5,8 @@ import ac.grim.grimac.events.packets.worldreader.BasePacketWorldReader;
 import ac.grim.grimac.events.packets.worldreader.PacketWorldReaderEight;
 import ac.grim.grimac.events.packets.worldreader.PacketWorldReaderEighteen;
 import ac.grim.grimac.manager.init.Initable;
-import ac.grim.grimac.utils.anticheat.KnockbackUtil;
-import ac.grim.grimac.utils.anticheat.LogUtil;
+import ac.grim.grimac.utils.anticheat.*;
 
-import ac.grim.grimac.utils.anticheat.Rotutil;
-import ac.grim.grimac.utils.anticheat.Swatutil;
 import com.github.retrooper.packetevents.PacketEvents;
 import com.github.retrooper.packetevents.manager.server.ServerVersion;
 
@@ -32,6 +29,7 @@ public class PacketManager implements Initable {
         PacketEvents.getAPI().getEventManager().registerListener(new PacketPlayerRespawn());
         PacketEvents.getAPI().getEventManager().registerListener(new CheckManagerListener());
         PacketEvents.getAPI().getEventManager().registerListener(new PacketPlayerSteer());
+        PacketEvents.getAPI().getEventManager().registerListener(new PacketPlayerWindow());
 
         if (PacketEvents.getAPI().getServerManager().getVersion().isNewerThanOrEquals(ServerVersion.V_1_18)) {
             PacketEvents.getAPI().getEventManager().registerListener(new PacketWorldReaderEighteen());
@@ -42,6 +40,7 @@ public class PacketManager implements Initable {
         }
         PacketEvents.getAPI().getEventManager().registerListener(new Swatutil());
         PacketEvents.getAPI().getEventManager().registerListener(new KnockbackUtil());
+    PacketEvents.getAPI().getEventManager().registerListener(new BlockInventoryUtil());
         PacketEvents.getAPI().getEventManager().registerListener(new Rotutil());
         PacketEvents.getAPI().getEventManager().registerListener(new ProxyAlertMessenger());
         PacketEvents.getAPI().getEventManager().registerListener(new PacketSetWrapperNull());

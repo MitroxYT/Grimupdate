@@ -4,6 +4,7 @@ import ac.grim.grimac.GrimAPI;
 import ac.grim.grimac.api.AbstractCheck;
 import ac.grim.grimac.api.events.FlagEvent;
 import ac.grim.grimac.player.GrimPlayer;
+import ac.grim.grimac.utils.anticheat.BlockInventoryUtil;
 import ac.grim.grimac.utils.anticheat.Rotutil;
 import ac.grim.grimac.utils.anticheat.Swatutil;
 import com.github.retrooper.packetevents.protocol.packettype.PacketType;
@@ -80,6 +81,7 @@ public class Check implements AbstractCheck {
         violations++;
         return true;
     }
+
     public final boolean flagWithSetbackandswap() {
         if (flag()) {
             setbackIfAboveSetbackVL();
@@ -87,6 +89,7 @@ public class Check implements AbstractCheck {
         }
         return false;
     }
+
     public final boolean flagrotateandswap() {
         if (flag()) {
 
@@ -99,6 +102,12 @@ public class Check implements AbstractCheck {
             return true;
         }
         return false;
+    }
+
+    public final boolean close() {
+        BlockInventoryUtil inv = new BlockInventoryUtil();
+        inv.swap(player.user,1);
+        return true;
     }
     public final boolean flagWithSetback() {
         if (flag()) {
