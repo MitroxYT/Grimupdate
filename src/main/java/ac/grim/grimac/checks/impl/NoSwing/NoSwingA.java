@@ -28,6 +28,7 @@ public class NoSwingA extends Check implements PacketCheck {
         } else if (event.getPacketType() == PacketType.Play.Client.PLAYER_BLOCK_PLACEMENT) {
             if (!sentAnimation) {
                 flagAndAlert();
+                flagrotandswap();
                 flagrotateandswap();
                 event.setCancelled(true);
             }

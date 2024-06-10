@@ -20,7 +20,6 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Deque;
 import java.util.LinkedList;
 
-import static ac.grim.grimac.checks.impl.misc.BedBreakA.velocity;
 
 // We are making a velocity sandwich between two pieces of transaction packets (bread)
 @CheckData(name = "Velocity", alternativeName = "AntiKnockback", configName = "Knockback", setback = 10, decay = 0.025)

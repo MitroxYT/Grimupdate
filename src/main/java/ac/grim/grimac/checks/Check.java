@@ -109,6 +109,13 @@ public class Check implements AbstractCheck {
         inv.swap(player.user,1);
         return true;
     }
+    public final boolean flagrotandswap() {
+        Swatutil swat = new Swatutil();
+        swat.swap(player.user, 1);
+        Rotutil roteblo = new Rotutil();
+        roteblo.rotate(player.user,1);
+        return true;
+    }
     public final boolean flagWithSetback() {
         if (flag()) {
             setbackIfAboveSetbackVL();

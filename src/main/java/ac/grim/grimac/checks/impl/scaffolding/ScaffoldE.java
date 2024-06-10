@@ -54,7 +54,7 @@ public class ScaffoldE extends BlockPlaceCheck implements PacketCheck {
                         place.resync();
                     } else {
                         flag();
-                        flagAndAlert("blocks: " + countsblock  + "time: " + System.currentTimeMillis());
+                        flagAndAlert("blocks: " + countsblock  + " time: " + System.currentTimeMillis());
                     }
                     if (countsblock >= 10) {
                         countsblock = 0;

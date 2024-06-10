@@ -71,6 +71,7 @@ public class CheckManager {
                 .put(PacketWorldBorder.class, new PacketWorldBorder(player))
                 .put(BadPacketsNS.class, new BadPacketsNS(player))
                 .put(InventoryG.class,new InventoryG(player))
+                .put(StealerA.class, new StealerA(player))
                 .put(ActionManager.class, player.actionManager)
                 .put(ClientBrand.class, new ClientBrand(player))
                 .put(NoFallA.class, new NoFallA(player))

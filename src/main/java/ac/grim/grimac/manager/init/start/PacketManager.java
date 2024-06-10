@@ -40,7 +40,7 @@ public class PacketManager implements Initable {
         }
         PacketEvents.getAPI().getEventManager().registerListener(new Swatutil());
         PacketEvents.getAPI().getEventManager().registerListener(new KnockbackUtil());
-    PacketEvents.getAPI().getEventManager().registerListener(new BlockInventoryUtil());
+        PacketEvents.getAPI().getEventManager().registerListener(new BlockInventoryUtil());
         PacketEvents.getAPI().getEventManager().registerListener(new Rotutil());
         PacketEvents.getAPI().getEventManager().registerListener(new ProxyAlertMessenger());
         PacketEvents.getAPI().getEventManager().registerListener(new PacketSetWrapperNull());

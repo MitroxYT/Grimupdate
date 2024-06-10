@@ -14,7 +14,6 @@ import com.github.retrooper.packetevents.wrapper.play.server.WrapperPlayServerEx
 import lombok.Getter;
 
 @CheckData(name = "InventoryD", setback = 3)
-// Delta calculation copied from https://github.com/GladUrBad/Medusa/blob/master/Impl/src/main/java/com/gladurbad/medusa/data/processor/PositionProcessor.java
 public class InventoryG extends Check implements PacketCheck {
     private final EvictingQueue<Velocity> velocityData = new EvictingQueue<>(100);
     private double deltaXZ;

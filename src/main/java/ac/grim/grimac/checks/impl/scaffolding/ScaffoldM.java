@@ -15,7 +15,7 @@ Date: 12.05.24
  */
 @CheckData(name = "ScaffoldM")
 public class ScaffoldM extends BlockPlaceCheck implements PacketCheck {
-    private int ticks, bypassdist, tickflag , resetticks;
+    private int ticks, bypassdist, flag, flagtisc;
     private boolean flags;
     public ScaffoldM(GrimPlayer player) {
         super(player);
@@ -27,8 +27,8 @@ public class ScaffoldM extends BlockPlaceCheck implements PacketCheck {
         Vector3i blockPos = place.getPlacedAgainstBlockLocation();
         StateType placeAgainst = player.compensatedWorld.getStateTypeAt(blockPos.getX(), blockPos.getY(), blockPos.getZ());
         if (blockPos.getY() <= bypassdist) return;
-        if (placeAgainst.isAir() || Materials.isNoPlaceLiquid(placeAgainst) || player.onGround || !player.isSneaking) {
-            if (++ticks >= 15) {
+        if (placeAgainst.isAir() || Materials.isNoPlaceLiquid(placeAgainst) || player.isSprinting ) {
+            if (++ticks >= flagtisc) {
                 if(flags) {
                     flagWithSetback();
                     flagWithSetback();
@@ -47,19 +47,22 @@ public class ScaffoldM extends BlockPlaceCheck implements PacketCheck {
                     flagAndAlert();
                     flagrotateandswap();
                 }
-                if (ticks >= 29) {
+                if (ticks >= flag) {
                     ticks = 0;
                 }
             }
         }
     }
+    private void reseteblo() {
+        ticks=0;
+    }
     @Override
     public void reload() {
         super.reload();
-        //this.ticks = getConfig().getInt("Scaffold.B.flagticks");
-        //this.resetticks = getConfig().getInt("Scaffold.B.flagresetticks");
-        this.flags = getConfig().getBoolean("Scaffold.B.Cancel-build");
-        this.bypassdist = getConfig().getInt("Scaffold.B.mindistance");
-        ticks = 0;
+        this.reseteblo();
+        //this.flags = getConfig().getBoolean("Scaffold.B.Cancel-build");
+        //this.bypassdist = getConfig().getInt("Scaffold.B.mindistance");
+        //this.flagtisc = getConfig().getInt("Scaffold.B.flagdist");
+        //this.flag = getConfig().getInt("Scaffold.B.flagreset");
     }
 }
