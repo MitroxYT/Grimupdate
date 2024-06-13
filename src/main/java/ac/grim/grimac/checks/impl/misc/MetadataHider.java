@@ -37,33 +37,31 @@ public class MetadataHider extends Check implements PacketCheck {
         final WrapperPlayServerEntityMetadata wrapper = new WrapperPlayServerEntityMetadata(event);
         final int entityId = wrapper.getEntityId();
 
-        // Player can get their own metadata.
+
         if (event.getUser().getEntityId() == entityId) {
             return;
         }
 
-        // This is automatically cached.
+
         final PacketEntity packetEntity = player.compensatedEntities.getEntity(entityId);
 
-        // Lookup failed, so the entity is not a living entity.
+
         if (packetEntity == null || !packetEntity.isLivingEntity()) {
             return;
         }
 
 
-        // Bossbar problems
-        // Cannot use Boss interface as that doesn't exist on 1.8.8
 
         List<EntityData> entityMetaData = wrapper.getEntityMetadata();
 
         boolean shouldPush = false;
 
         for (EntityData data : entityMetaData) {
-            // Search for health.
+
 
             if (healthHider && data.getIndex() == MetadataIndex.HEALTH) {
                 float health = Float.parseFloat(String.valueOf(data.getValue()));
-                // Only modify alive entities (health > 0).
+
                 if (health > 0) {
                     data.setValue(Float.NaN);
                     shouldPush = true;

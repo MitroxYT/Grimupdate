@@ -2,6 +2,7 @@ package ac.grim.grimac.manager;
 
 
 import ac.grim.grimac.api.AbstractCheck;
+import ac.grim.grimac.checks.impl.Elytra.ElytraA;
 import ac.grim.grimac.checks.impl.Inventory.*;
 import ac.grim.grimac.checks.impl.NoSwing.NoSwingA;
 import ac.grim.grimac.checks.impl.aim.AimDuplicateLook;
@@ -169,6 +170,7 @@ public class CheckManager {
                 .put(CrashD.class, new CrashD(player))
                 .put(CrashE.class, new CrashE(player))
                 .put(CrashF.class, new CrashF(player))
+                .put(ElytraA.class, new ElytraA(player))
                 .put(MetadataHider.class,new MetadataHider(player))
                 .put(CrashG.class, new CrashG(player))
                 .put(NoDamageUtil.class, new NoDamageUtil(player))
