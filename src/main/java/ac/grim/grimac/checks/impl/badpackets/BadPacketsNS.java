@@ -25,6 +25,12 @@ public class BadPacketsNS extends Check implements PacketCheck {
                     NoDamageUtil.noslowusers.put(playerId, 1);
                     flagAndAlert();
                     flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetback();
+                    flagWithSetback();
                 }
                 if(++buffer== 10) {
                     buffer=0;
