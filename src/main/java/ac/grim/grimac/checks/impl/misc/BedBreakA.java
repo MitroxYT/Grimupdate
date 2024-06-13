@@ -30,11 +30,10 @@ public class BedBreakA extends Check implements PacketCheck {
             if (e.getPacketType() == PacketType.Play.Client.PLAYER_DIGGING) {
                 WrapperPlayClientPlayerDigging digging = new WrapperPlayClientPlayerDigging(e);
                 if (digging.getAction() == DiggingAction.START_DIGGING) {
+                    assert player.bukkitPlayer != null;
                     Location blockLocation = new Location(player.bukkitPlayer.getWorld(), digging.getBlockPosition().getX(), digging.getBlockPosition().getY(), digging.getBlockPosition().getZ());
                     Block block = blockLocation.getBlock();
                     if (block.getType() == Material.RED_BED && isBedSurrounded(block)) {
-                        e.setCancelled(true);
-                        player.onPacketCancel();
                         flagAndAlert();
                         avarage = 0;
                         velocity = false;
